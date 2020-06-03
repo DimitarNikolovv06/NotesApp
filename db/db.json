@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "5ed66b4e03461057f4639de4",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 20,
+      "name": "Henry Robles",
+      "email": "henryrobles@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4e7815289c314dca7b",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 21,
+      "name": "Joann Owens",
+      "email": "joannowens@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4e3a6f23dc693992ee",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 34,
+      "name": "Dixie Santana",
+      "email": "dixiesantana@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4e1fa58911b27b85b7",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 34,
+      "name": "Francisca Hendricks",
+      "email": "franciscahendricks@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4e853d1b28242e321f",
+      "isActive": false,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 37,
+      "name": "Roth Blackburn",
+      "email": "rothblackburn@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4eb6f88aeefe755245",
+      "isActive": true,
+      "isAdmin": false,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 36,
+      "name": "Nona Miller",
+      "email": "nonamiller@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "5ed66b4eddd91423dd64d08d",
+      "isActive": true,
+      "isAdmin": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 25,
+      "name": "Quinn Ellison",
+      "email": "quinnellison@entality.com",
+      "password": 12345
+    },
+    {
+      "id": "memyselfandi",
+      "isActive": true,
+      "isAdmin": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "age": 21,
+      "name": "Dima",
+      "email": "mail@mail.com",
+      "password": 12345
+    }
+  ],
+  "notes": []
+}

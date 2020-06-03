@@ -1,0 +1,10 @@
+.left-bar {
+  width: 20%;
+  border-right: 3px solid #ca7df9;
+  height: 100vh;
+}
+
+#right-bar {
+  background-color: var(--gray-dark);
+  width: 80%;
+}

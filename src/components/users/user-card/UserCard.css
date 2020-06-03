@@ -1,0 +1,7 @@
+.user-card {
+  width: 300px;
+  height: auto;
+  background: none;
+  color: var(--light);
+  margin: 10px;
+}
