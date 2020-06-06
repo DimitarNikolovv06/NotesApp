@@ -1,7 +1,8 @@
 .user-card {
+  box-sizing: border-box;
   width: 300px;
   height: auto;
   background: none;
   color: var(--light);
-  margin: 10px;
+  border: 2px solid #ca7df9;
 }

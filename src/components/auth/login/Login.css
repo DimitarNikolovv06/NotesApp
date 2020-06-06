@@ -1,0 +1,23 @@
+.pink {
+  color: #ca7df9;
+}
+
+#login {
+  height: 500px;
+  width: 500px;
+  border: 2px solid #ca7df9;
+  border-radius: 5px;
+}
+
+.login-wrapper {
+  height: 100vh;
+}
+
+#div-buttons {
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.btn {
+  margin: 20px 10px;
+}
