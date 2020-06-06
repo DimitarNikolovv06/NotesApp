@@ -8,8 +8,7 @@
       "age": "39",
       "name": "Roth Blackburn",
       "email": "rothblackburn@entality.com",
-      "password": 12345,
-      "": "on"
+      "password": 12345
     },
     {
       "id": "5ed66b4eb6f88aeefe755245",
@@ -59,7 +58,6 @@
       "password": "123553",
       "isAdmin": false,
       "isActive": true,
-      "": "on",
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "I0lhPxz"
     }
