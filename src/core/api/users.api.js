@@ -16,15 +16,6 @@ export function editUser(userData) {
   }
 
   return register(userData);
-
-  // userData = {
-  //   ...userData,
-  //   isActive: true,
-  //   isAdmin: false,
-  //   picture: "https://picsum.photos/200/300?random=1",
-  // };
-
-  // return axios.post(`${apiURL}/users`, userData);
 }
 
 export async function login(userData) {

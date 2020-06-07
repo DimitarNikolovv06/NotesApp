@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function UserCard({ user }) {
   return (
-    <div className="user-card m-4 p-2">
+    <div className="user-card m-auto p-2">
       <div className="picture-holder">
         <img src={user.picture} alt="avatar" />
       </div>

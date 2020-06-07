@@ -6,6 +6,7 @@ import { AuthenticatedRoute } from "./core/auth/AuthenticatedRoute";
 import { Login } from "./components/auth/login/Login";
 import { Register } from "./components/auth/register/Register";
 import { NonAuthenticatedRoute } from "./core/auth/NonAuthenticatedRoute";
+import { User } from "./components/users/user/User";
 
 function App() {
   return (
