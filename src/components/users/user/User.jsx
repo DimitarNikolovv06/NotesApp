@@ -7,7 +7,7 @@ import {
 import { UserCard } from "../user-card/UserCard";
 import "./User.css";
 import { Link } from "react-router-dom";
-import { makeNote, getNotesByAuthorName } from "../../../core/api/notes.api";
+import { makeNote } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 
 export function User(props) {
@@ -15,7 +15,7 @@ export function User(props) {
   const currentUserId = props.computedMatch.params.id;
 
   const [user, setUser] = useState({});
-  const [notes, setNotes] = useState([]);
+
   const [newNote, setNewNote] = useState({
     authorId: loggedUser.id,
     authorName: loggedUser.name,
@@ -26,22 +26,17 @@ export function User(props) {
   useEffect(() => {
     getUser(currentUserId).then((response) => {
       setUser(response.data);
-      getNotesByAuthorName(user)
-        .then((result) => setNotes(result.data))
-        .catch((err) => console.log(err));
     });
   }, {});
 
-  useEffect(() => {
-    getNotesByAuthorName(currentUserId)
-      .then((result) => setNotes(result.data))
-      .catch((err) => console.log(err));
-  }, [newNote]);
-
   const onClick = () => {
-    deleteUser(user.id)
-      .then(() => console.log("success"))
-      .catch((err) => console.log(err));
+    if (loggedUser !== user && !user.isAdmin) {
+      deleteUser(user.id)
+        .then(() => console.log("success"))
+        .catch((err) => console.log(err));
+    } else {
+      console.log("Can not delete user that is admin!");
+    }
   };
 
   const onSubmit = (event) => {
@@ -61,12 +56,10 @@ export function User(props) {
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-    // console.log(newNote);
   };
 
   return (
     <div className="user">
-      {/* {console.log(user)} */}
       <div className="left-bar">
         <UserCard user={user} key={user.id} />
         {loggedUser.isAdmin && (
@@ -110,7 +103,7 @@ export function User(props) {
         /> */}
       </div>
       <div className=" right-bar">
-        <NotesList notes={notes} />
+        <NotesList userId={currentUserId} newNote={newNote} />
       </div>
     </div>
   );

@@ -19,9 +19,7 @@ export function Header() {
           id="nav"
           className="navbar navbar-expand-lg navbar-dark pink-border"
         >
-          <a className="navbar-brand" href="#">
-            Notes-app
-          </a>
+          <a className="navbar-brand">Notes-app</a>
           <button
             className="navbar-toggler"
             type="button"

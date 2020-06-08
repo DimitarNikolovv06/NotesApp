@@ -15,3 +15,11 @@ export async function getNotesByAuthorName(userId) {
 export function makeNote(note) {
   return axios.post(`${apiURL}/notes/`, note);
 }
+
+export function deleteNote(id) {
+  return axios.delete(`${apiURL}/notes/${id}`);
+}
+
+export function editNote(noteData) {
+  return axios.put(`${apiURL}/notes/${noteData.id}`, noteData);
+}

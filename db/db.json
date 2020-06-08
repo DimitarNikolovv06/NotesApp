@@ -11,16 +11,6 @@
       "password": 12345
     },
     {
-      "id": "5ed66b4eb6f88aeefe755245",
-      "isActive": true,
-      "isAdmin": false,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "age": 36,
-      "name": "Nona Miller",
-      "email": "nonamiller@entality.com",
-      "password": 12345
-    },
-    {
       "id": "5ed66b4eddd91423dd64d08d",
       "isActive": true,
       "isAdmin": true,
@@ -56,15 +46,8 @@
       "authorId": "memyselfandi",
       "authorName": "Dima",
       "dateCreated": "2020-06-07T11:41:33.329Z",
-      "noteContent": "FIX CSS",
+      "noteContent": "Maybe",
       "id": "bc6iWjw"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-07T12:31:59.905Z",
-      "noteContent": "count",
-      "id": "memyselfandi1"
     },
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
@@ -100,6 +83,27 @@
       "dateCreated": "2020-06-07T14:34:03.601Z",
       "noteContent": "Last time asking yes or no?",
       "id": "1fAcjXb"
+    },
+    {
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-07T14:37:54.169Z",
+      "noteContent": "Yusss",
+      "id": "yV0q6kU"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-08T14:45:21.726Z",
+      "noteContent": "Teeeest",
+      "id": "VCrqCd2"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-08T14:47:23.084Z",
+      "noteContent": "test3",
+      "id": "iWKwvLi"
     }
   ]
 }
