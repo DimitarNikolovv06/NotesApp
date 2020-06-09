@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { NoteBlock } from "../note-block/NoteBlock";
-import { deleteNote, getNotesByAuthorName } from "../../../core/api/notes.api";
+import { deleteNote, getNotes, getAllNotes } from "../../../core/api/notes.api";
 import { getLoggedUser } from "../../../core/api/users.api";
 
 export function NotesList({ userId, newNote }) {
+  const allNotes = getAllNotes();
   const loggedUser = JSON.parse(getLoggedUser());
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    getNotesByAuthorName(userId)
+    getNotes(userId)
       .then((result) => setNotes(result.data))
       .catch((err) => console.log(err));
   }, [newNote]);

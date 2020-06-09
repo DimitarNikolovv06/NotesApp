@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUser, editUser, register } from "../../../core/api/users.api";
+import { getUser, editUser } from "../../../core/api/users.api";
 import { Redirect } from "react-router-dom";
 
 export function UserEdit(props) {

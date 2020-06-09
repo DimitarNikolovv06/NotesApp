@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { editNote } from "../../../core/api/notes.api";
 
-export function NoteEditInput({ note }) {
-  const [editedNote, setEditedNote] = useState({ ...note });
-  const [isSubmitted, setSubmitted] = useState(false);
-
-  const onNoteEdit = (event) => {
-    event.persist();
-
-    setEditedNote((prevState) => ({
-      ...prevState,
-      [event.target.name]: event.target.value,
-    }));
-
-    console.log(editedNote);
-  };
-
-  const onNoteSubmit = (event) => {
-    event.preventDefault();
-    setSubmitted(!isSubmitted);
-
-    editNote(editedNote)
-      .then((result) => {
-        note = result.data;
-      })
-      .catch((err) => console.log(err));
-  };
-
+export function NoteEditInput({
+  note,
+  onNoteEdit,
+  onNoteSubmit,
+  isSubmitted,
+  editedNote,
+}) {
   return (
     <>
       {!isSubmitted && (
         <div>
           <form
-            onSubmit={onNoteSubmit}
+            onSubmit={(event) => onNoteSubmit(event)}
             style={{ background: "none" }}
             type="submit"
           >
@@ -41,9 +22,10 @@ export function NoteEditInput({ note }) {
               placeholder={note.noteContent}
               type="text"
               name="noteContent"
-              id="noteContent2"
+              id="noteContent"
               style={{ background: "none" }}
-              onChange={onNoteEdit}
+              onChange={(event) => onNoteEdit(event)}
+              value={editedNote.noteContent}
             />
             <button style={{ display: "none" }} type="submit"></button>
           </form>

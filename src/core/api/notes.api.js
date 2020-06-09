@@ -3,11 +3,13 @@ import { getUser } from "./users.api";
 
 const apiURL = "http://localhost:3005";
 
-export function getAllNotes() {
-  return axios.get(`${apiURL}/notes`);
+export async function getAllNotes() {
+  const allNotes = await axios.get(`${apiURL}/notes`);
+
+  return allNotes;
 }
 
-export async function getNotesByAuthorName(userId) {
+export async function getNotes(userId) {
   const user = (await getUser(userId)).data;
   return axios.get(`${apiURL}/notes?authorName=${user.name}`);
 }
@@ -22,4 +24,8 @@ export function deleteNote(id) {
 
 export function editNote(noteData) {
   return axios.put(`${apiURL}/notes/${noteData.id}`, noteData);
+}
+
+export function getNoteById(id) {
+  return axios.get(`${apiURL}/notes/${id}`);
 }
