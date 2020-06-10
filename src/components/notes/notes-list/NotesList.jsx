@@ -1,31 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { NoteBlock } from "../note-block/NoteBlock";
-import { deleteNote, getNotes, getAllNotes } from "../../../core/api/notes.api";
+import { deleteNote, getNotes } from "../../../core/api/notes.api";
 import { getLoggedUser } from "../../../core/api/users.api";
 
-export function NotesList({ userId, newNote }) {
-  const allNotes = getAllNotes();
+export function NotesList({ userId, isNewNoteSubmitted }) {
   const loggedUser = JSON.parse(getLoggedUser());
   const [notes, setNotes] = useState([]);
+  const [isEffectRequired, setEffectRequired] = useState(false);
 
   useEffect(() => {
     getNotes(userId)
       .then((result) => setNotes(result.data))
       .catch((err) => console.log(err));
-  }, [newNote]);
+  }, [isEffectRequired, isNewNoteSubmitted]);
 
   const onClickDelete = (id) => {
-    deleteNote(id)
-      .then(() => {
-        console.log("deleted");
-      })
-      .catch((err) => console.log(err));
+    if (loggedUser.id === userId || loggedUser.isAdmin) {
+      deleteNote(id)
+        .then(() => {
+          setEffectRequired(true);
+        })
+        .catch((err) => console.log(err))
+        .finally(() => setEffectRequired(false));
+    } else {
+      alert(`Can't delete a note that does not belong to you!`);
+    }
   };
 
   return (
     <div className="notes-list">
       {notes.map((note) => (
-        <NoteBlock note={note} key={note.id} onDelete={onClickDelete} />
+        <NoteBlock
+          note={note}
+          key={note.id}
+          onDelete={onClickDelete}
+          userId={userId}
+        />
       ))}
     </div>
   );

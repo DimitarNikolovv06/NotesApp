@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./Header.css";
-import { logout } from "../../../core/api/users.api";
+import { logout, getLoggedUser } from "../../../core/api/users.api";
 
 export function Header() {
   const [isLoggedOut, setLogout] = useState(false);
+  const loggedUser = JSON.parse(getLoggedUser()) || false;
 
   const onClick = (event) => {
     logout();
@@ -44,11 +45,13 @@ export function Header() {
                   Users
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/create">
-                  Create User
-                </Link>
-              </li>
+              {loggedUser.isAdmin && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/create">
+                    Create User
+                  </Link>
+                </li>
+              )}
             </ul>
             <form className="form-inline my-2 my-lg-0">
               <input

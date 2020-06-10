@@ -3,12 +3,6 @@ import { getUser } from "./users.api";
 
 const apiURL = "http://localhost:3005";
 
-export async function getAllNotes() {
-  const allNotes = await axios.get(`${apiURL}/notes`);
-
-  return allNotes;
-}
-
 export async function getNotes(userId) {
   const user = (await getUser(userId)).data;
   return axios.get(`${apiURL}/notes?authorName=${user.name}`);

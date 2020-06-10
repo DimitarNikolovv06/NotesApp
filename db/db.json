@@ -39,30 +39,20 @@
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "XNpgTMF"
+    },
+    {
+      "email": "vaniobossa@mail.com",
+      "name": "Vankata",
+      "age": "16",
+      "password": "12345678",
+      "isAdmin": false,
+      "isActive": true,
+      "": "on",
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": "7W_-rkl"
     }
   ],
   "notes": [
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-07T11:41:33.329Z",
-      "noteContent": "DUUUDE it works :O",
-      "id": "bc6iWjw"
-    },
-    {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T12:34:18.791Z",
-      "noteContent": "adasf",
-      "id": "5ed66b4eddd91423dd64d08d1"
-    },
-    {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T13:08:08.151Z",
-      "noteContent": "dasda",
-      "id": "5ed66b4eddd91423dd64d08d2"
-    },
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
@@ -71,46 +61,46 @@
       "id": "ctaLHwS"
     },
     {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T14:32:15.102Z",
-      "noteContent": "Yes?",
-      "id": "8jNy_c9"
-    },
-    {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T14:34:03.601Z",
-      "noteContent": "Last time asking yes or no?",
-      "id": "1fAcjXb"
-    },
-    {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T14:37:54.169Z",
-      "noteContent": "Yusss",
-      "id": "yV0q6kU"
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-10T16:20:20.202Z",
+      "noteContent": "Working",
+      "id": "PtgBqC9"
     },
     {
       "authorId": "memyselfandi",
       "authorName": "Dima",
-      "dateCreated": "2020-06-08T14:45:21.726Z",
-      "noteContent": "Maybe?! ",
-      "id": "VCrqCd2"
+      "dateCreated": "2020-06-10T16:20:20.202Z",
+      "noteContent": "unbelievable",
+      "id": "jF9ZD_C"
     },
     {
       "authorId": "memyselfandi",
       "authorName": "Dima",
-      "dateCreated": "2020-06-08T14:47:23.084Z",
-      "noteContent": "Finally? ",
-      "id": "iWKwvLi"
+      "dateCreated": "2020-06-10T16:21:16.398Z",
+      "noteContent": "Quinn?",
+      "id": "-3R6Qvs"
+    },
+    {
+      "authorId": "XNpgTMF",
+      "authorName": "Johnny",
+      "dateCreated": "2020-06-10T16:37:01.899Z",
+      "noteContent": "Fix CSS works",
+      "id": "Vzk3hrc"
+    },
+    {
+      "authorId": "XNpgTMF",
+      "authorName": "Johnny",
+      "dateCreated": "2020-06-10T16:52:09.327Z",
+      "noteContent": "Tets",
+      "id": "xL1xr--"
     },
     {
       "authorId": "memyselfandi",
       "authorName": "Dima",
-      "dateCreated": "2020-06-09T22:42:49.580Z",
-      "noteContent": "WHY",
-      "id": "ODpa8ze"
+      "dateCreated": "2020-06-10T16:55:22.779Z",
+      "noteContent": "234",
+      "id": "jHkkXOF"
     }
   ]
 }

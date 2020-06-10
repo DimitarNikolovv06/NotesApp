@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./NoteBlock.css";
-import { NoteEditInput } from "./NoteEditInput";
+import { NoteEditForm } from "./NoteEditForm";
 import { useEffect } from "react";
-import { editNote, getAllNotes } from "../../../core/api/notes.api";
+import { editNote } from "../../../core/api/notes.api";
+import { getLoggedUser } from "../../../core/api/users.api";
 
-const allNotes = getAllNotes();
-
-export function NoteBlock({ note, onDelete }) {
+export function NoteBlock({ note, onDelete, userId }) {
+  const loggedUser = JSON.parse(getLoggedUser());
   const [isClicked, setIsClicked] = useState(false);
   const [editedNote, setEditedNote] = useState({ ...note });
   const [isSubmitted, setSubmitted] = useState(false);
@@ -24,8 +24,6 @@ export function NoteBlock({ note, onDelete }) {
       ...prevState,
       [event.target.name]: event.target.value,
     }));
-
-    console.log(editedNote);
   };
 
   const onNoteSubmit = (event) => {
@@ -40,7 +38,11 @@ export function NoteBlock({ note, onDelete }) {
   };
 
   const onClick = () => {
-    setIsClicked(!isClicked);
+    if (loggedUser.id === userId || loggedUser.isAdmin) {
+      setIsClicked(!isClicked);
+    } else {
+      alert(`Can't edit a note that does not belong to you!`);
+    }
   };
 
   return (
@@ -62,7 +64,7 @@ export function NoteBlock({ note, onDelete }) {
         </button>
       </div>
       {isClicked && (
-        <NoteEditInput
+        <NoteEditForm
           note={note}
           onNoteEdit={onNoteEdit}
           onNoteSubmit={onNoteSubmit}

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { editNote } from "../../../core/api/notes.api";
+import React from "react";
 
-export function NoteEditInput({
+export function NoteEditForm({
   note,
   onNoteEdit,
   onNoteSubmit,

@@ -13,21 +13,21 @@ import { NotesList } from "../../notes/notes-list/NotesList";
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
-
-  const [user, setUser] = useState({});
-
-  const [newNote, setNewNote] = useState({
-    authorId: loggedUser.id,
-    authorName: loggedUser.name,
-    dateCreated: new Date(),
-    noteContent: "",
-  });
+  const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
 
   useEffect(() => {
     getUser(currentUserId).then((response) => {
       setUser(response.data);
     });
   }, {});
+
+  const [user, setUser] = useState({});
+  const [newNote, setNewNote] = useState({
+    authorId: loggedUser.id,
+    authorName: loggedUser.name,
+    dateCreated: new Date(),
+    noteContent: "",
+  });
 
   const onClick = () => {
     if (loggedUser !== user && !user.isAdmin) {
@@ -46,7 +46,9 @@ export function User(props) {
       .then(() =>
         setNewNote((prevState) => ({ ...prevState, noteContent: "" }))
       )
-      .catch((err) => console.log(err));
+      .then(() => setNoteSubmitted(true))
+      .catch((err) => console.log(err))
+      .finally(() => setNoteSubmitted(false));
   };
 
   const onChange = (event) => {
@@ -60,6 +62,7 @@ export function User(props) {
 
   return (
     <div className="user">
+      {/* {console.log(alllnotes)} */}
       <div className="left-bar">
         <UserCard user={user} key={user.id} />
         {loggedUser.isAdmin && (
@@ -97,13 +100,12 @@ export function User(props) {
             Add Note
           </button>
         </form>
-        {/* <hr
-          style={{ color: "red", width: "100%", height: "20px" }}
-          className=""
-        /> */}
       </div>
       <div className=" right-bar">
-        <NotesList userId={currentUserId} newNote={newNote} />
+        <NotesList
+          userId={currentUserId}
+          isNewNoteSubmitted={isNewNoteSubmitted}
+        />
       </div>
     </div>
   );
