@@ -61,51 +61,53 @@ export function User(props) {
   };
 
   return (
-    <div className="user">
-      {/* {console.log(alllnotes)} */}
-      <div className="left-bar">
-        <UserCard user={user} key={user.id} />
-        {loggedUser.isAdmin && (
-          <div>
-            <Link
-              className="btn btn-outline-info"
-              to={`/users/${user.id}/edit`}
-              user={user}
-            >
-              Edit
-            </Link>
-            <Link
-              to="/"
-              className="btn btn-outline-info"
-              onClick={onClick}
-              user={user}
-            >
-              Delete
-            </Link>
-          </div>
-        )}
-        <form onSubmit={onSubmit}>
-          <input
-            className="form-control btn-outline-info"
-            onChange={onChange}
-            type="text"
-            name="noteContent"
-            id="noteContent"
-            value={newNote.noteContent}
-            style={{ background: "none" }}
-            placeholder="New Note"
-          />
+    <div className="user container-fluid ">
+      <div className="row">
+        <div className="left-bar col-3">
+          <UserCard user={user} key={user.id} />
+          {loggedUser.isAdmin && (
+            <div>
+              <Link
+                className="btn btn-outline-info"
+                to={`/users/${user.id}/edit`}
+                user={user}
+              >
+                Edit
+              </Link>
+              <Link
+                to="/"
+                className="btn btn-outline-info"
+                onClick={onClick}
+                user={user}
+              >
+                Delete
+              </Link>
+            </div>
+          )}
+          <form onSubmit={onSubmit}>
+            <input
+              className="form-control btn-outline-info mt-4"
+              onChange={onChange}
+              type="text"
+              name="noteContent"
+              id="noteContent"
+              value={newNote.noteContent}
+              style={{ background: "none" }}
+              placeholder="New Note"
+            />
+            <button type="submit" className="btn btn-outline-info mt-2">
+              Add Note
+            </button>
+          </form>
 
-          <button type="submit" className="btn btn-outline-info">
-            Add Note
-          </button>
-        </form>
-      </div>
-      <div className=" right-bar">
-        <NotesList
-          userId={currentUserId}
-          isNewNoteSubmitted={isNewNoteSubmitted}
-        />
+          <p style={{ color: "whitesmoke" }}>You have notes left.</p>
+        </div>
+        <div className=" right-bar col-9">
+          <NotesList
+            userId={currentUserId}
+            isNewNoteSubmitted={isNewNoteSubmitted}
+          />
+        </div>
       </div>
     </div>
   );

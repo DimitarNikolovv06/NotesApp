@@ -1,9 +1,6 @@
 .note-block {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-  width: 90%;
+  position: relative;
+  width: 80%;
   height: auto;
   border: 2px solid #17a2b8;
   border-radius: 5px;
@@ -14,5 +11,27 @@
 
 .note-content,
 .note-date {
+  position: relative;
   padding: 5px;
+  word-wrap: break-word;
+  /* width: 90%; */
+}
+
+#delete-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: none;
+  margin: 5px;
+  background: none;
+  z-index: 100;
+}
+#edit-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  margin: 5px;
+  background: none;
+  border: none;
+  z-index: 100;
 }

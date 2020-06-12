@@ -4,18 +4,23 @@ import { NoteEditForm } from "./NoteEditForm";
 import { useEffect } from "react";
 import { editNote } from "../../../core/api/notes.api";
 import { getLoggedUser } from "../../../core/api/users.api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export function NoteBlock({ note, onDelete, userId }) {
   const loggedUser = JSON.parse(getLoggedUser());
   const [isClicked, setIsClicked] = useState(false);
   const [editedNote, setEditedNote] = useState({ ...note });
   const [isSubmitted, setSubmitted] = useState(false);
+  const [isEditIconClicked, setIconClicked] = useState(false);
+  const editIcon = <FontAwesomeIcon icon={faEdit} />;
+  const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 
   useEffect(() => {
     if (isSubmitted)
       document.getElementById(`cont-${note.id}`).innerText =
         editedNote.noteContent;
-  });
+  }, [isEditIconClicked]);
 
   const onNoteEdit = (event) => {
     event.persist();
@@ -29,6 +34,7 @@ export function NoteBlock({ note, onDelete, userId }) {
   const onNoteSubmit = (event) => {
     event.preventDefault();
     setSubmitted(!isSubmitted);
+    setIconClicked(!isEditIconClicked);
 
     editNote(editedNote)
       .then((result) => {
@@ -47,22 +53,6 @@ export function NoteBlock({ note, onDelete, userId }) {
 
   return (
     <div className="note-block">
-      <div>
-        <button
-          className="btn btn-outline-info"
-          type="button"
-          onClick={onClick}
-        >
-          Edit Note
-        </button>
-        <button
-          className="btn btn-outline-info"
-          type="button"
-          onClick={() => onDelete(note.id)}
-        >
-          Delete
-        </button>
-      </div>
       {isClicked && (
         <NoteEditForm
           note={note}
@@ -72,6 +62,24 @@ export function NoteBlock({ note, onDelete, userId }) {
           editedNote={editedNote}
         />
       )}
+      <div>
+        <button
+          id={`edit-icon`}
+          className="btn btn-outline-info"
+          type="button"
+          onClick={onClick}
+        >
+          {editIcon}
+        </button>
+        <button
+          id="delete-icon"
+          className="btn btn-outline-info"
+          type="button"
+          onClick={() => onDelete(note.id)}
+        >
+          {deleteIcon}
+        </button>
+      </div>
 
       <div id={`cont-${note.id}`} className="note-content">
         {note.noteContent}
