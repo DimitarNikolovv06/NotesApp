@@ -2,13 +2,13 @@
   "users": [
     {
       "id": "5ed66b4e853d1b28242e321f",
-      "isActive": false,
+      "isActive": true,
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
       "age": "39",
       "name": "Roth Blackburn",
       "email": "rothblackburn@entality.com",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "5ed66b4eddd91423dd64d08d",
@@ -47,9 +47,18 @@
       "password": "12345678",
       "isAdmin": false,
       "isActive": true,
-      "": "on",
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "7W_-rkl"
+    },
+    {
+      "email": "veselin@mail.com",
+      "name": "Veselin",
+      "age": "21",
+      "password": "12345",
+      "isAdmin": false,
+      "isActive": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": "JqKe150"
     }
   ],
   "notes": [
@@ -91,20 +100,6 @@
     {
       "authorId": "XNpgTMF",
       "authorName": "Johnny",
-      "dateCreated": "2020-06-12T21:54:41.519Z",
-      "noteContent": "oh for fuck sake 7",
-      "id": "JOITCNL"
-    },
-    {
-      "authorId": "XNpgTMF",
-      "authorName": "Johnny",
-      "dateCreated": "2020-06-12T22:47:50.066Z",
-      "noteContent": "no they actually are not ://///",
-      "id": "WGr6F3_"
-    },
-    {
-      "authorId": "XNpgTMF",
-      "authorName": "Johnny",
       "dateCreated": "2020-06-12T23:02:42.169Z",
       "noteContent": "EEEEEE",
       "id": "LOVcGy2"
@@ -115,6 +110,41 @@
       "dateCreated": "2020-06-12T23:02:42.169Z",
       "noteContent": "works",
       "id": "bjnZJ8A"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-13T12:52:12.814Z",
+      "noteContent": "Fix isadmin and isactive",
+      "id": "pS-Pmqm"
+    },
+    {
+      "authorId": "7W_-rkl",
+      "authorName": "Vankata",
+      "dateCreated": "2020-06-13T12:57:59.646Z",
+      "noteContent": "Vankaaa",
+      "id": "luZeKOe"
+    },
+    {
+      "authorId": "5ed66b4e853d1b28242e321f",
+      "authorName": "Roth Blackburn",
+      "dateCreated": "2020-06-13T13:03:27.723Z",
+      "noteContent": "Somehow this actually works wow",
+      "id": "NpQsjEw"
+    },
+    {
+      "authorId": "5ed66b4e853d1b28242e321f",
+      "authorName": "Roth Blackburn",
+      "dateCreated": "2020-06-13T13:04:22.374Z",
+      "noteContent": "Just a little more to fix",
+      "id": "pjHGMG6"
+    },
+    {
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-13T13:09:57.933Z",
+      "noteContent": "Yes it is :O",
+      "id": "cIU5Kq7"
     }
   ]
 }

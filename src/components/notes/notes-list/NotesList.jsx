@@ -12,7 +12,7 @@ export function NotesList({ userId, isNewNoteSubmitted }) {
     getNotes(userId)
       .then((result) => setNotes(result.data))
       .catch((err) => console.log(err));
-  }, [isEffectRequired, isNewNoteSubmitted]);
+  }, [isEffectRequired, isNewNoteSubmitted, userId]);
 
   const onClickDelete = (id) => {
     if (loggedUser.id === userId || loggedUser.isAdmin) {

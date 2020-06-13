@@ -19,7 +19,7 @@ export function User(props) {
     getUser(currentUserId).then((response) => {
       setUser(response.data);
     });
-  }, {});
+  }, [currentUserId]);
 
   const [user, setUser] = useState({});
   const [newNote, setNewNote] = useState({
@@ -56,6 +56,8 @@ export function User(props) {
 
     setNewNote((prevState) => ({
       ...prevState,
+      authorId: user.id,
+      authorName: user.name,
       [event.target.name]: event.target.value,
     }));
   };
@@ -84,21 +86,23 @@ export function User(props) {
               </Link>
             </div>
           )}
-          <form onSubmit={onSubmit}>
-            <input
-              className="form-control btn-outline-info mt-4"
-              onChange={onChange}
-              type="text"
-              name="noteContent"
-              id="noteContent"
-              value={newNote.noteContent}
-              style={{ background: "none" }}
-              placeholder="New Note"
-            />
-            <button type="submit" className="btn btn-outline-info mt-2">
-              Add Note
-            </button>
-          </form>
+          {(loggedUser.id === currentUserId || loggedUser.isAdmin) && (
+            <form onSubmit={onSubmit}>
+              <input
+                className="form-control btn-outline-info mt-4"
+                onChange={onChange}
+                type="text"
+                name="noteContent"
+                id="noteContent"
+                value={newNote.noteContent}
+                style={{ background: "none" }}
+                placeholder="New Note"
+              />
+              <button type="submit" className="btn btn-outline-info mt-2">
+                Add Note
+              </button>
+            </form>
+          )}
 
           <p style={{ color: "whitesmoke" }}>You have notes left.</p>
         </div>

@@ -1,8 +1,14 @@
 .pink-border {
   border-bottom: 5px solid #ca7df9;
-  /* background: black; */
 }
 
 .navbar {
   background: black;
 }
+
+#notes-app {
+  font-family: "Press Start 2P", cursive;
+  color: #4a20bd;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");

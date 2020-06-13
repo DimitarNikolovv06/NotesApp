@@ -4,6 +4,7 @@ import { UsersList } from "../../users/users-list/UsersList";
 import { User } from "../../users/user/User";
 import { AuthenticatedRoute } from "../../../core/auth/AuthenticatedRoute";
 import { UserEdit } from "../../users/user-edit/UserEdit";
+import { HomePage } from "../../home/HomePage";
 
 export function Main() {
   // const style = {
@@ -14,6 +15,7 @@ export function Main() {
   return (
     <div className="main-content">
       <Switch>
+        <AuthenticatedRoute exact path="/" component={HomePage} />
         <AuthenticatedRoute exact path="/users" component={UsersList} />
         <AuthenticatedRoute exact path="/users/:id" component={User} />
         <AuthenticatedRoute

@@ -15,7 +15,7 @@ export function UserEdit(props) {
     age: "",
     password: "",
     isAdmin: false,
-    isActive: false,
+    isActive: true,
   });
 
   const [edit, setEdit] = useState(false);
@@ -29,8 +29,6 @@ export function UserEdit(props) {
         .catch((err) => console.log(err));
     }
   }, []);
-
-  console.log(userEdit);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -47,6 +45,15 @@ export function UserEdit(props) {
     setUserEdit((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
+    }));
+  };
+
+  const onCheckBoxChange = (event) => {
+    event.persist();
+    console.log(userEdit);
+    setUserEdit((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.checked,
     }));
   };
 
@@ -117,7 +124,8 @@ export function UserEdit(props) {
                 type="checkbox"
                 className="form-check-input"
                 id="admin"
-                onChange={onInputChange}
+                name="isAdmin"
+                onChange={onCheckBoxChange}
               />
               <label
                 style={{ color: "whitesmoke" }}
@@ -133,7 +141,8 @@ export function UserEdit(props) {
                 type="checkbox"
                 className="form-check-input"
                 id="active"
-                onChange={onInputChange}
+                name="isActive"
+                onChange={onCheckBoxChange}
               />
               <label
                 style={{ color: "whitesmoke" }}

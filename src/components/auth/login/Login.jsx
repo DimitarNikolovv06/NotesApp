@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { login, getAllUsers, getLoggedUser } from "../../../core/api/users.api";
+import { login, getLoggedUser } from "../../../core/api/users.api";
 import { Redirect, Link } from "react-router-dom";
-// const styles = {
-//   backgroundColor: "whitesmoke",
-//   width: 500,
-//   height: 500,
-// };
 
 export function Login() {
   const [userData, setUserData] = useState(0);
@@ -32,15 +27,13 @@ export function Login() {
         }
       })
       .catch((err) => setErrorMessage(err.message));
-
-    // if (getLoggedUser()) {
-    //   setLoginSuccess(true);
-    // }
   };
 
   return (
     <>
-      {isLoginSuccess && <Redirect to="/" />}
+      {isLoginSuccess && (
+        <Redirect to={`/users/${JSON.parse(getLoggedUser()).id}`} />
+      )}
       <div className="login-wrapper d-flex justify-content-center align-items-center">
         <div
           id="login"

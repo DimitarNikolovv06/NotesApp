@@ -7,7 +7,7 @@ export function Header() {
   const [isLoggedOut, setLogout] = useState(false);
   const loggedUser = JSON.parse(getLoggedUser()) || false;
 
-  const onClick = (event) => {
+  const onClick = () => {
     logout();
     setLogout(true);
   };
@@ -20,7 +20,9 @@ export function Header() {
           id="nav"
           className="navbar navbar-expand-lg navbar-dark pink-border"
         >
-          <a className="navbar-brand">Notes-app</a>
+          <Link id="notes-app" className="navbar-brand" to="/">
+            Notes-app
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -36,7 +38,7 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to={`/users/${loggedUser.id}`}>
                   Home
                 </Link>
               </li>
