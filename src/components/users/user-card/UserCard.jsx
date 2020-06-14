@@ -1,8 +1,11 @@
 import React from "react";
 import "./UserCard.css";
 import { Link } from "react-router-dom";
+import { getLoggedUser } from "../../../core/api/users.api";
 
-export function UserCard({ user }) {
+export function UserCard({ user, onClick }) {
+  const loggedUser = JSON.parse(getLoggedUser());
+
   return (
     <div className="user-card m-2 p-2">
       <div className="picture-holder">
@@ -16,6 +19,28 @@ export function UserCard({ user }) {
           <span>, {user.age}</span>
         </div>
         <div className="email">{user.email}</div>
+        <div>
+          {loggedUser.isAdmin && loggedUser.id !== user.id && (
+            <button
+              className="btn btn-outline-info"
+              onClick={() => {
+                onClick(user.id);
+              }}
+              user={user}
+            >
+              Delete
+            </button>
+          )}
+          {loggedUser.isAdmin && (
+            <Link
+              className="btn btn-outline-info"
+              to={`/users/${user.id}/edit`}
+              user={user}
+            >
+              Edit
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

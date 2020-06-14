@@ -1,15 +1,48 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import "./Header.css";
 import { logout, getLoggedUser } from "../../../core/api/users.api";
 
-export function Header() {
+export const Header = withRouter((props) => {
   const [isLoggedOut, setLogout] = useState(false);
   const loggedUser = JSON.parse(getLoggedUser()) || false;
+  const [searchParam, setSearchParam] = useState("");
+  const history = props.history;
+  const pathName = props.location.pathname.substring(0);
+  const historyObj = { pathName, search: "" };
 
   const onClick = () => {
     logout();
     setLogout(true);
+  };
+
+  const onKeyDown = (event) => {
+    const key = event.key;
+
+    if (key === "Backspace") {
+      setSearchParam("");
+    }
+  };
+
+  const onChange = (event) => {
+    setSearchParam(event.target.value);
+    event.persist();
+    setSearchParam(event.target.value);
+
+    if (searchParam) {
+      historyObj.search = `?=${searchParam}`;
+    }
+
+    history.push(historyObj);
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (searchParam) {
+      historyObj.search = `?q=${searchParam}`;
+    }
+
+    history.push(historyObj);
   };
 
   return (
@@ -20,8 +53,8 @@ export function Header() {
           id="nav"
           className="navbar navbar-expand-lg navbar-dark pink-border"
         >
-          <Link id="notes-app" className="navbar-brand" to="/">
-            Notes-app
+          <Link id="notes-app" className="navbar-brand" to="/users">
+            [Notes-app]
           </Link>
           <button
             className="navbar-toggler"
@@ -55,12 +88,15 @@ export function Header() {
                 </li>
               )}
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            <form onSubmit={onSubmit} className="form-inline my-2 my-lg-0">
               <input
+                name="searchInput"
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                onChange={onChange}
+                onKeyDown={onKeyDown}
               />
               <button
                 className="btn btn-outline-info my-2 my-sm-0"
@@ -81,4 +117,4 @@ export function Header() {
       </div>
     </>
   );
-}
+});

@@ -31,34 +31,24 @@
       "password": 12345
     },
     {
-      "name": "Johnny",
-      "age": "23",
-      "email": "johnnyboy@mail.com",
-      "password": "123456",
+      "id": "agsdgsgg",
       "isActive": true,
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
-      "id": "XNpgTMF"
+      "age": 21,
+      "name": "Vesko",
+      "email": "vesko@mail.com",
+      "password": 12345
     },
     {
-      "email": "vaniobossa@mail.com",
-      "name": "Vankata",
-      "age": "16",
-      "password": "12345678",
-      "isAdmin": false,
-      "isActive": true,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "id": "7W_-rkl"
-    },
-    {
-      "email": "veselin@mail.com",
-      "name": "Veselin",
-      "age": "21",
+      "email": "boss@realmadred.com",
+      "name": "BacheNase",
+      "age": "47",
       "password": "12345",
       "isAdmin": false,
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
-      "id": "JqKe150"
+      "id": "nhn-8qx"
     }
   ],
   "notes": [
@@ -68,34 +58,6 @@
       "dateCreated": "2020-06-07T14:31:09.404Z",
       "noteContent": "Is this working?",
       "id": "ctaLHwS"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-10T16:20:20.202Z",
-      "noteContent": "Working",
-      "id": "PtgBqC9"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-10T16:20:20.202Z",
-      "noteContent": "unbelievable",
-      "id": "jF9ZD_C"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-10T16:21:16.398Z",
-      "noteContent": "Quinn?",
-      "id": "-3R6Qvs"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-10T16:55:22.779Z",
-      "noteContent": "234",
-      "id": "jHkkXOF"
     },
     {
       "authorId": "XNpgTMF",
@@ -110,13 +72,6 @@
       "dateCreated": "2020-06-12T23:02:42.169Z",
       "noteContent": "works",
       "id": "bjnZJ8A"
-    },
-    {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-13T12:52:12.814Z",
-      "noteContent": "Fix isadmin and isactive",
-      "id": "pS-Pmqm"
     },
     {
       "authorId": "7W_-rkl",
@@ -145,6 +100,55 @@
       "dateCreated": "2020-06-13T13:09:57.933Z",
       "noteContent": "Yes it is :O",
       "id": "cIU5Kq7"
+    },
+    {
+      "authorId": "JqKe150",
+      "authorName": "Veselin",
+      "dateCreated": "2020-06-14T12:22:39.475Z",
+      "noteContent": "smeni kolata",
+      "id": "Y1HtvtG"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-14T12:24:23.082Z",
+      "noteContent": "Hello there",
+      "id": "zHBJffL"
+    },
+    {
+      "authorId": "5ed66b4e853d1b28242e321f",
+      "authorName": "Roth Blackburn",
+      "dateCreated": "2020-06-14T16:42:18.200Z",
+      "noteContent": "ok is this stll working",
+      "id": "9Rlimsp"
+    },
+    {
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-14T16:42:50.098Z",
+      "noteContent": "Yes still working",
+      "id": "K-xv2KX"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-14T16:42:59.831Z",
+      "noteContent": "Unbelieveable , indeed",
+      "id": "Th2YLgJ"
+    },
+    {
+      "authorId": "agsdgsgg",
+      "authorName": "Vesko",
+      "dateCreated": "2020-06-14T16:45:15.810Z",
+      "noteContent": "agent 007",
+      "id": "z5bo-WK"
+    },
+    {
+      "authorId": "nhn-8qx",
+      "authorName": "BacheNase",
+      "dateCreated": "2020-06-14T16:46:16.020Z",
+      "noteContent": "Alo da",
+      "id": "uxT89WJ"
     }
   ]
 }

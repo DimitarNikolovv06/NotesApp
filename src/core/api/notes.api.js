@@ -23,3 +23,9 @@ export function editNote(noteData) {
 export function getNoteById(id) {
   return axios.get(`${apiURL}/notes/${id}`);
 }
+
+export async function deleteNotesWithUser(userId) {
+  const notes = (await axios.get(`${apiURL}/notes?authorId=${userId}`)).data;
+
+  return notes.map((note) => deleteNote(note.id));
+}

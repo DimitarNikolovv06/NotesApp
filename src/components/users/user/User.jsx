@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  getUser,
-  deleteUser,
-  getLoggedUser,
-} from "../../../core/api/users.api";
+import { getUser, getLoggedUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
 import "./User.css";
-import { Link } from "react-router-dom";
 import { makeNote } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 
@@ -23,21 +18,11 @@ export function User(props) {
 
   const [user, setUser] = useState({});
   const [newNote, setNewNote] = useState({
-    authorId: loggedUser.id,
-    authorName: loggedUser.name,
+    authorId: currentUserId.id,
+    authorName: "",
     dateCreated: new Date(),
     noteContent: "",
   });
-
-  const onClick = () => {
-    if (loggedUser !== user && !user.isAdmin) {
-      deleteUser(user.id)
-        .then(() => console.log("success"))
-        .catch((err) => console.log(err));
-    } else {
-      console.log("Can not delete user that is admin!");
-    }
-  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -67,25 +52,7 @@ export function User(props) {
       <div className="row">
         <div className="left-bar col-3">
           <UserCard user={user} key={user.id} />
-          {loggedUser.isAdmin && (
-            <div>
-              <Link
-                className="btn btn-outline-info"
-                to={`/users/${user.id}/edit`}
-                user={user}
-              >
-                Edit
-              </Link>
-              <Link
-                to="/"
-                className="btn btn-outline-info"
-                onClick={onClick}
-                user={user}
-              >
-                Delete
-              </Link>
-            </div>
-          )}
+
           {(loggedUser.id === currentUserId || loggedUser.isAdmin) && (
             <form onSubmit={onSubmit}>
               <input

@@ -1,9 +1,16 @@
 import axios from "axios";
+import { deleteNotesWithUser } from "./notes.api";
 
 const apiURL = "http://localhost:3005";
 
-export function getAllUsers() {
-  return axios.get(`${apiURL}/users`);
+export async function getAllUsers(params) {
+  const allUsers = (await axios.get(`${apiURL}/users`)).data;
+
+  if (!params) return allUsers;
+
+  return allUsers.filter((user) =>
+    user.name.toLowerCase().includes(params.toLowerCase())
+  );
 }
 
 export function getUser(id) {
@@ -19,7 +26,7 @@ export function editUser(userData) {
 }
 
 export async function login(userData) {
-  const users = (await getAllUsers()).data;
+  const users = await getAllUsers();
 
   const loggedUser = users.find(
     (user) =>
@@ -44,7 +51,7 @@ export function logout() {
 }
 
 export async function register(userData) {
-  const users = (await getAllUsers()).data;
+  const users = await getAllUsers();
 
   userData = {
     ...userData,
@@ -53,13 +60,21 @@ export async function register(userData) {
     picture: "https://picsum.photos/200/300?random=1",
   };
 
-  if (users.find((user) => user.email === userData.email)) {
+  if (
+    users.find(
+      (user) => user.email === userData.email || user.name === userData.name
+    )
+  ) {
     throw new Error("Email already exists");
   } else {
     return axios.post(`${apiURL}/users`, userData);
   }
 }
 
-export function deleteUser(id) {
+export async function deleteUser(id) {
+  await deleteNotesWithUser(id)
+    .then(() => console.log("works"))
+    .catch((err) => console.log(err));
+
   return axios.delete(`${apiURL}/users/${id}`);
 }
