@@ -70,8 +70,6 @@ export function User(props) {
               </button>
             </form>
           )}
-
-          <p style={{ color: "whitesmoke" }}>You have notes left.</p>
         </div>
         <div className=" right-bar col-9">
           <NotesList

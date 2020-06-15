@@ -3,11 +3,11 @@ import "./UserCard.css";
 import { Link } from "react-router-dom";
 import { getLoggedUser } from "../../../core/api/users.api";
 
-export function UserCard({ user, onClick }) {
+export function UserCard({ user, onClick, path }) {
   const loggedUser = JSON.parse(getLoggedUser());
 
   return (
-    <div className="user-card m-2 p-2">
+    <div className="user-card p-2">
       <div className="picture-holder">
         <img src={user.picture} alt="avatar" />
       </div>
@@ -20,17 +20,19 @@ export function UserCard({ user, onClick }) {
         </div>
         <div className="email">{user.email}</div>
         <div>
-          {loggedUser.isAdmin && loggedUser.id !== user.id && (
-            <button
-              className="btn btn-outline-info"
-              onClick={() => {
-                onClick(user.id);
-              }}
-              user={user}
-            >
-              Delete
-            </button>
-          )}
+          {loggedUser.isAdmin &&
+            loggedUser.id !== user.id &&
+            path === "/users" && (
+              <button
+                className="btn btn-outline-info"
+                onClick={() => {
+                  onClick(user.id);
+                }}
+                user={user}
+              >
+                Delete
+              </button>
+            )}
           {loggedUser.isAdmin && (
             <Link
               className="btn btn-outline-info"

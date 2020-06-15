@@ -42,13 +42,23 @@
     },
     {
       "email": "boss@realmadred.com",
-      "name": "BacheNase",
+      "name": "Bache Nase",
       "age": "47",
       "password": "12345",
       "isAdmin": false,
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "nhn-8qx"
+    },
+    {
+      "email": "valentine@mail.com",
+      "name": "Valentin",
+      "age": "14",
+      "password": "12345",
+      "isAdmin": false,
+      "isActive": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": "4xTZNop"
     }
   ],
   "notes": [
@@ -119,7 +129,7 @@
       "authorId": "5ed66b4e853d1b28242e321f",
       "authorName": "Roth Blackburn",
       "dateCreated": "2020-06-14T16:42:18.200Z",
-      "noteContent": "ok is this stll working",
+      "noteContent": "ok is this stll working yes",
       "id": "9Rlimsp"
     },
     {
@@ -149,6 +159,27 @@
       "dateCreated": "2020-06-14T16:46:16.020Z",
       "noteContent": "Alo da",
       "id": "uxT89WJ"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-15T13:38:02.700Z",
+      "noteContent": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "id": "WicgLNh"
+    },
+    {
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-15T14:26:27.278Z",
+      "noteContent": "CSS is evil",
+      "id": "EkA7dil"
+    },
+    {
+      "authorId": "agsdgsgg",
+      "authorName": "Vesko",
+      "dateCreated": "2020-06-15T15:48:14.990Z",
+      "noteContent": "shef",
+      "id": "feCd-YE"
     }
   ]
 }

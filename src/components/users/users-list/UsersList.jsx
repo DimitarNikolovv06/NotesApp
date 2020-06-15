@@ -5,6 +5,7 @@ import {
   deleteUser,
 } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
+import "./UsersList.css";
 
 export function UsersList(props) {
   const [users, setUsers] = useState([]);
@@ -28,12 +29,14 @@ export function UsersList(props) {
   }, [params, isUserDeleted]);
 
   return (
-    <div
-      id="list"
-      className="users-list d-flex justify-content-center flex-wrap m-4"
-    >
+    <div id="list" className="users-list">
       {users.map((user) => (
-        <UserCard user={user} key={user.id} onClick={onClick} />
+        <UserCard
+          path={props.path}
+          user={user}
+          key={user.id}
+          onClick={onClick}
+        />
       ))}
     </div>
   );

@@ -35,3 +35,12 @@
   border: none;
   z-index: 100;
 }
+#drag-icon {
+  position: absolute;
+  right: 45px;
+  bottom: 0;
+  margin: 5px;
+  background: none;
+  border: none;
+  z-index: 100;
+}
