@@ -10,9 +10,9 @@ import {
   faTrash,
   faHandPointer,
 } from "@fortawesome/free-solid-svg-icons";
-import Draggable from "react-draggable";
+import { Draggable } from "react-beautiful-dnd";
 
-export function NoteBlock({ note, onDelete, userId }) {
+export function NoteBlock({ note, onDelete, userId, index }) {
   const loggedUser = JSON.parse(getLoggedUser());
   const [isClicked, setIsClicked] = useState(false);
   const [editedNote, setEditedNote] = useState({ ...note });
@@ -22,37 +22,13 @@ export function NoteBlock({ note, onDelete, userId }) {
   const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
   const dragIcon = <FontAwesomeIcon icon={faHandPointer} />;
 
-  const [dragState, setDragState] = useState({
-    activeDrags: 0,
-    deltaPosition: {
-      x: 0,
-      y: 0,
-    },
-    controlledPosition: {
-      x: -400,
-      y: 200,
-    },
-  });
+  // const reorder = (notes, startY, endY) => {
+  //   const [removed] = notes.splice(startY, 1);
 
-  const handleDrag = (e, ui) => {
-    const { x, y } = dragState.deltaPosition;
-    setDragState({
-      deltaPosition: {
-        x: x + ui.deltaX,
-        y: y + ui.deltaY,
-      },
-    });
-  };
+  //   notes.splice(endY, 0, removed);
 
-  const onStart = () => {
-    setDragState({ activeDrags: ++dragState.activeDrags });
-  };
-
-  const onStop = () => {
-    setDragState({ activeDrags: --dragState.activeDrags });
-  };
-
-  const dragHandlers = { onStart, onStop };
+  //   return notes;
+  // };
 
   useEffect(() => {
     if (isSubmitted)
@@ -90,52 +66,59 @@ export function NoteBlock({ note, onDelete, userId }) {
   };
 
   return (
-    <Draggable handle="#drag-icon" axis="y" {...dragHandlers}>
-      <div className="note-block">
-        {isClicked && (
-          <NoteEditForm
-            note={note}
-            onNoteEdit={onNoteEdit}
-            onNoteSubmit={onNoteSubmit}
-            isSubmitted={isSubmitted}
-            editedNote={editedNote}
-          />
-        )}
-
-        <button
-          title="Hold me"
-          id="drag-icon"
-          className="btn btn-outline-info"
-          type="button"
+    <Draggable draggableId={note.id} index={index}>
+      {(provided) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          className="note-block"
         >
-          {dragIcon}
-        </button>
+          {isClicked && (
+            <NoteEditForm
+              note={note}
+              onNoteEdit={onNoteEdit}
+              onNoteSubmit={onNoteSubmit}
+              isSubmitted={isSubmitted}
+              editedNote={editedNote}
+            />
+          )}
 
-        <div>
           <button
-            id="edit-icon"
+            title="Hold me"
+            id="drag-icon"
             className="btn btn-outline-info"
             type="button"
-            onClick={onClick}
           >
-            {editIcon}
+            {dragIcon}
           </button>
-          <button
-            id="delete-icon"
-            className="btn btn-outline-info"
-            type="button"
-            onClick={() => onDelete(note.id)}
-          >
-            {deleteIcon}
-          </button>
-        </div>
 
-        <div id={`cont-${note.id}`} className="note-content">
-          {note.noteContent}
-        </div>
+          <div>
+            <button
+              id="edit-icon"
+              className="btn btn-outline-info"
+              type="button"
+              onClick={onClick}
+            >
+              {editIcon}
+            </button>
+            <button
+              id="delete-icon"
+              className="btn btn-outline-info"
+              type="button"
+              onClick={() => onDelete(note.id)}
+            >
+              {deleteIcon}
+            </button>
+          </div>
 
-        <div className="note-date">{note.dateCreated}</div>
-      </div>
+          <div id={`cont-${note.id}`} className="note-content">
+            {note.noteContent}
+          </div>
+
+          <div className="note-date">{note.dateCreated}</div>
+        </div>
+      )}
     </Draggable>
   );
 }

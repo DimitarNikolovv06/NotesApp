@@ -4,17 +4,19 @@ import { UserCard } from "../user-card/UserCard";
 import "./User.css";
 import { makeNote } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
+import { DragDropContext } from "react-beautiful-dnd";
 
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
+  const [notesDragged, setNotesDragged] = useState(false);
 
   useEffect(() => {
     getUser(currentUserId).then((response) => {
       setUser(response.data);
     });
-  }, [currentUserId]);
+  }, [currentUserId, notesDragged]);
 
   const [user, setUser] = useState({});
   const [newNote, setNewNote] = useState({
@@ -47,11 +49,19 @@ export function User(props) {
     }));
   };
 
+  const onDragEnd = (result) => {
+    setNotesDragged(!notesDragged);
+  };
+
   return (
     <div className="user container-fluid ">
       <div className="row">
         <div className="left-bar col-3">
-          <UserCard user={user} key={user.id} />
+          <UserCard
+            style={{ width: "90%", height: "auto" }}
+            user={user}
+            key={user.id}
+          />
 
           {(loggedUser.id === currentUserId || loggedUser.isAdmin) && (
             <form onSubmit={onSubmit}>
@@ -71,12 +81,14 @@ export function User(props) {
             </form>
           )}
         </div>
-        <div className=" right-bar col-9">
-          <NotesList
-            userId={currentUserId}
-            isNewNoteSubmitted={isNewNoteSubmitted}
-          />
-        </div>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className=" right-bar col-9">
+            <NotesList
+              userId={currentUserId}
+              isNewNoteSubmitted={isNewNoteSubmitted}
+            />
+          </div>
+        </DragDropContext>
       </div>
     </div>
   );

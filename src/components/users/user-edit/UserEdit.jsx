@@ -35,7 +35,6 @@ export function UserEdit(props) {
     editUser(userEdit)
       .then(() => {
         setEdit(true);
-        console.log("success");
       })
       .catch((err) => console.log(err));
   };
@@ -61,7 +60,9 @@ export function UserEdit(props) {
     <>
       {edit && <Redirect to="/users" />}
       <div className="user-edit-wrapper d-flex flex-column justify-content-center align-items-center">
-        <h1 style={{ color: "whitesmoke" }}>Edit/Create</h1>
+        <h1 style={{ color: "whitesmoke" }}>
+          {props.path === "/create" ? "Create" : "Edit"}
+        </h1>
         <form
           className=" d-flex flex-column justify-content-center align-items-center"
           style={style}
@@ -155,7 +156,7 @@ export function UserEdit(props) {
           </div>
 
           <button type="submit" className="btn btn-outline-info">
-            Edit
+            {props.path === "/create" ? "Create" : "Edit"}
           </button>
         </form>
       </div>

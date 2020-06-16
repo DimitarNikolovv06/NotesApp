@@ -1,11 +1,9 @@
 import axios from "axios";
-import { getUser } from "./users.api";
 
 const apiURL = "http://localhost:3005";
 
-export async function getNotes(userId) {
-  const user = (await getUser(userId)).data;
-  return axios.get(`${apiURL}/notes?authorName=${user.name}`);
+export function getNotes(id) {
+  return axios.get(`${apiURL}/notes?authorId=${id}`);
 }
 
 export function makeNote(note) {

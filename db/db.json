@@ -42,7 +42,7 @@
     },
     {
       "email": "boss@realmadred.com",
-      "name": "Bache Nase",
+      "name": "BACHENASE",
       "age": "47",
       "password": "12345",
       "isAdmin": false,
@@ -59,6 +59,16 @@
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "4xTZNop"
+    },
+    {
+      "email": "ailiovspirt@mail.com",
+      "name": "Kiro Spirta",
+      "age": "44",
+      "password": "nzkudesenamiram",
+      "isAdmin": false,
+      "isActive": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": "P4o_hdM"
     }
   ],
   "notes": [
@@ -96,13 +106,6 @@
       "dateCreated": "2020-06-13T13:03:27.723Z",
       "noteContent": "Somehow this actually works wow",
       "id": "NpQsjEw"
-    },
-    {
-      "authorId": "5ed66b4e853d1b28242e321f",
-      "authorName": "Roth Blackburn",
-      "dateCreated": "2020-06-13T13:04:22.374Z",
-      "noteContent": "Just a little more to fix",
-      "id": "pjHGMG6"
     },
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
@@ -155,7 +158,7 @@
     },
     {
       "authorId": "nhn-8qx",
-      "authorName": "BacheNase",
+      "authorName": "BACHENASE",
       "dateCreated": "2020-06-14T16:46:16.020Z",
       "noteContent": "Alo da",
       "id": "uxT89WJ"
@@ -180,6 +183,48 @@
       "dateCreated": "2020-06-15T15:48:14.990Z",
       "noteContent": "shef",
       "id": "feCd-YE"
+    },
+    {
+      "authorId": "nhn-8qx",
+      "authorName": "BACHENASE",
+      "dateCreated": "2020-06-15T19:13:00.845Z",
+      "noteContent": "make rakia",
+      "id": "J5qtZYp"
+    },
+    {
+      "authorId": "nhn-8qx",
+      "authorName": "BACHENASE",
+      "dateCreated": "2020-06-15T19:14:11.416Z",
+      "noteContent": "drink and draiv",
+      "id": "ZGt8kH-"
+    },
+    {
+      "authorId": "nhn-8qx",
+      "authorName": "BACHENASE",
+      "dateCreated": "2020-06-15T19:22:23.343Z",
+      "noteContent": "Ein zwei polizei",
+      "id": "RKgm500"
+    },
+    {
+      "authorId": "P4o_hdM",
+      "authorName": "Kiro Spirta",
+      "dateCreated": "2020-06-15T19:43:36.762Z",
+      "noteContent": "prodavam chasti za golf 3",
+      "id": "Fb7YKJx"
+    },
+    {
+      "authorId": "4xTZNop",
+      "authorName": "Valentin",
+      "dateCreated": "2020-06-16T13:17:34.097Z",
+      "noteContent": "Shef na firmata",
+      "id": "JQnlGqM"
+    },
+    {
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-16T16:46:54.274Z",
+      "noteContent": "did something break?",
+      "id": "8VGpB0i"
     }
   ]
 }

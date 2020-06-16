@@ -1,5 +1,5 @@
 import axios from "axios";
-import { deleteNotesWithUser } from "./notes.api";
+import { deleteNotesWithUser, getNotes } from "./notes.api";
 
 const apiURL = "http://localhost:3005";
 
@@ -17,8 +17,17 @@ export function getUser(id) {
   return axios.get(`${apiURL}/users/${id}`);
 }
 
-export function editUser(userData) {
+export async function editUser(userData) {
   if (userData.id) {
+    const allNotes = (await getNotes(userData.id)).data;
+
+    allNotes.map((note) => {
+      note.authorName = userData.name;
+      note.authorId = userData.id;
+
+      axios.put(`${apiURL}/notes/${note.id}`, note);
+    });
+
     return axios.put(`${apiURL}/users/${userData.id}`, userData);
   }
 

@@ -3,11 +3,11 @@ import "./UserCard.css";
 import { Link } from "react-router-dom";
 import { getLoggedUser } from "../../../core/api/users.api";
 
-export function UserCard({ user, onClick, path }) {
+export function UserCard({ user, onClick, path, style }) {
   const loggedUser = JSON.parse(getLoggedUser());
 
   return (
-    <div className="user-card p-2">
+    <div style={style} className="user-card p-2">
       <div className="picture-holder">
         <img src={user.picture} alt="avatar" />
       </div>

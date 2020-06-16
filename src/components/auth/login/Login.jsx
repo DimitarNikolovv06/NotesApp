@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { login, getLoggedUser } from "../../../core/api/users.api";
 import { Redirect, Link } from "react-router-dom";
+import Background from "../../../background/notes.jpg";
 
 export function Login() {
   const [userData, setUserData] = useState(0);
@@ -31,6 +32,7 @@ export function Login() {
 
   return (
     <>
+      {/* {(document.body.style.backgroundImage = `url(${Background})`)} */}
       {isLoginSuccess && (
         <Redirect to={`/users/${JSON.parse(getLoggedUser()).id}`} />
       )}
