@@ -75,8 +75,8 @@
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-07T14:31:09.404Z",
-      "noteContent": "Is this working?",
+      "dateCreated": "2020-06-15T14:26:27.278Z",
+      "noteContent": "CSS is evil",
       "id": "ctaLHwS"
     },
     {
@@ -108,13 +108,6 @@
       "id": "NpQsjEw"
     },
     {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-13T13:09:57.933Z",
-      "noteContent": "Yes it is :O",
-      "id": "cIU5Kq7"
-    },
-    {
       "authorId": "JqKe150",
       "authorName": "Veselin",
       "dateCreated": "2020-06-14T12:22:39.475Z",
@@ -134,13 +127,6 @@
       "dateCreated": "2020-06-14T16:42:18.200Z",
       "noteContent": "ok is this stll working yes",
       "id": "9Rlimsp"
-    },
-    {
-      "authorId": "5ed66b4eddd91423dd64d08d",
-      "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-14T16:42:50.098Z",
-      "noteContent": "Yes still working",
-      "id": "K-xv2KX"
     },
     {
       "authorId": "memyselfandi",
@@ -164,17 +150,10 @@
       "id": "uxT89WJ"
     },
     {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-15T13:38:02.700Z",
-      "noteContent": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "id": "WicgLNh"
-    },
-    {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-15T14:26:27.278Z",
-      "noteContent": "CSS is evil",
+      "dateCreated": "2020-06-13T13:09:57.933Z",
+      "noteContent": "test",
       "id": "EkA7dil"
     },
     {
@@ -222,9 +201,9 @@
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-16T16:46:54.274Z",
-      "noteContent": "did something break?",
-      "id": "8VGpB0i"
+      "dateCreated": "2020-06-14T16:42:50.098Z",
+      "noteContent": "Yes still working",
+      "id": "1xNoSee"
     }
   ]
 }

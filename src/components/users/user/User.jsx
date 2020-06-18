@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { getUser, getLoggedUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
 import "./User.css";
-import { makeNote } from "../../../core/api/notes.api";
+import {
+  makeNote,
+  getNotes,
+  afterDragNotes,
+  deleteNote,
+} from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -10,14 +15,9 @@ export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
-  const [notesDragged, setNotesDragged] = useState(false);
-
-  useEffect(() => {
-    getUser(currentUserId).then((response) => {
-      setUser(response.data);
-    });
-  }, [currentUserId, notesDragged]);
-
+  const [notes, setNotes] = useState([]);
+  // const [isDragged, setDragged] = useState(false);
+  const [isNoteDeleted, setNoteDeleted] = useState(false);
   const [user, setUser] = useState({});
   const [newNote, setNewNote] = useState({
     authorId: currentUserId.id,
@@ -25,6 +25,28 @@ export function User(props) {
     dateCreated: new Date(),
     noteContent: "",
   });
+
+  useEffect(() => {
+    getUser(currentUserId).then((response) => {
+      setUser(response.data);
+    });
+
+    getNotes(currentUserId)
+      .then((result) => setNotes(result.data))
+      .catch((err) => console.log(err));
+  }, [currentUserId, isNewNoteSubmitted, isNoteDeleted]);
+
+  const onClickDelete = (id) => {
+    if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
+      deleteNote(id)
+        .then(() => {
+          setNoteDeleted(!isNoteDeleted);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert(`Can't delete a note that does not belong to you!`);
+    }
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +72,30 @@ export function User(props) {
   };
 
   const onDragEnd = (result) => {
-    setNotesDragged(!notesDragged);
+    const { source, destination } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    ) {
+      return;
+    }
+
+    // const listId = source.droppableId;
+    const newArray = [...notes];
+
+    const [removed] = newArray.splice(source.index, 1);
+
+    newArray.splice(destination.index, 0, removed);
+    setNotes(newArray);
+
+    afterDragNotes(currentUserId, notes)
+      .then(() => console.log("DRAGGED"))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -84,8 +129,9 @@ export function User(props) {
         <DragDropContext onDragEnd={onDragEnd}>
           <div className=" right-bar col-9">
             <NotesList
+              notes={notes}
               userId={currentUserId}
-              isNewNoteSubmitted={isNewNoteSubmitted}
+              onClickDelete={onClickDelete}
             />
           </div>
         </DragDropContext>

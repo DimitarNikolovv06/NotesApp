@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = "http://localhost:3005";
+const apiURL = "http://localhost:3006";
 
 export function getNotes(id) {
   return axios.get(`${apiURL}/notes?authorId=${id}`);
@@ -26,4 +26,15 @@ export async function deleteNotesWithUser(userId) {
   const notes = (await axios.get(`${apiURL}/notes?authorId=${userId}`)).data;
 
   return notes.map((note) => deleteNote(note.id));
+}
+
+export async function afterDragNotes(id, notes) {
+  const oldNotes = (await getNotes(id)).data;
+
+  oldNotes.forEach((note, ind) => {
+    axios
+      .put(`${apiURL}/notes/${note.id}`, notes[ind])
+      .then()
+      .catch((err) => console.log(err));
+  });
 }

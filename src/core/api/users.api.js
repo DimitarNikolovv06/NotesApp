@@ -1,7 +1,7 @@
 import axios from "axios";
 import { deleteNotesWithUser, getNotes } from "./notes.api";
 
-const apiURL = "http://localhost:3005";
+const apiURL = "http://localhost:3006";
 
 export async function getAllUsers(params) {
   const allUsers = (await axios.get(`${apiURL}/users`)).data;

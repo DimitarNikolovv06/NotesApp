@@ -5,11 +5,7 @@ import { useEffect } from "react";
 import { editNote } from "../../../core/api/notes.api";
 import { getLoggedUser } from "../../../core/api/users.api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEdit,
-  faTrash,
-  faHandPointer,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Draggable } from "react-beautiful-dnd";
 
 export function NoteBlock({ note, onDelete, userId, index }) {
@@ -20,15 +16,6 @@ export function NoteBlock({ note, onDelete, userId, index }) {
   const [isEditIconClicked, setIconClicked] = useState(false);
   const editIcon = <FontAwesomeIcon icon={faEdit} />;
   const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
-  const dragIcon = <FontAwesomeIcon icon={faHandPointer} />;
-
-  // const reorder = (notes, startY, endY) => {
-  //   const [removed] = notes.splice(startY, 1);
-
-  //   notes.splice(endY, 0, removed);
-
-  //   return notes;
-  // };
 
   useEffect(() => {
     if (isSubmitted)
@@ -83,16 +70,6 @@ export function NoteBlock({ note, onDelete, userId, index }) {
               editedNote={editedNote}
             />
           )}
-
-          <button
-            title="Hold me"
-            id="drag-icon"
-            className="btn btn-outline-info"
-            type="button"
-          >
-            {dragIcon}
-          </button>
-
           <div>
             <button
               id="edit-icon"
