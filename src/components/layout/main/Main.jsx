@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { UsersList } from "../../users/users-list/UsersList";
 import { User } from "../../users/user/User";
 import { AuthenticatedRoute } from "../../../core/auth/AuthenticatedRoute";
@@ -30,6 +30,7 @@ export function Main() {
           path="/create"
           component={UserEdit}
         />
+        <Route />
       </Switch>
     </div>
   );

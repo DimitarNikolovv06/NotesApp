@@ -5,20 +5,20 @@
       "isActive": true,
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
-      "age": "39",
+      "age": "30",
       "name": "Roth Blackburn",
       "email": "rothblackburn@entality.com",
-      "password": "12345"
+      "password": "112314"
     },
     {
       "id": "5ed66b4eddd91423dd64d08d",
       "isActive": true,
       "isAdmin": true,
       "picture": "https://picsum.photos/200/300?random=1",
-      "age": 25,
+      "age": "22",
       "name": "Quinn Ellison",
       "email": "quinnellison@entality.com",
-      "password": 12345
+      "password": "123456"
     },
     {
       "id": "memyselfandi",
@@ -28,7 +28,7 @@
       "age": 21,
       "name": "Dima",
       "email": "mail@mail.com",
-      "password": 12345
+      "password": "12345"
     },
     {
       "id": "agsdgsgg",
@@ -36,35 +36,25 @@
       "isAdmin": false,
       "picture": "https://picsum.photos/200/300?random=1",
       "age": 21,
-      "name": "Vesko",
+      "name": "Asen",
       "email": "vesko@mail.com",
-      "password": 12345
+      "password": "12345"
     },
     {
       "email": "boss@realmadred.com",
       "name": "BACHENASE",
-      "age": "47",
-      "password": "12345",
+      "age": 47,
+      "password": "12345678",
       "isAdmin": false,
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": "nhn-8qx"
     },
     {
-      "email": "valentine@mail.com",
-      "name": "Valentin",
-      "age": "14",
-      "password": "12345",
-      "isAdmin": false,
-      "isActive": true,
-      "picture": "https://picsum.photos/200/300?random=1",
-      "id": "4xTZNop"
-    },
-    {
       "email": "ailiovspirt@mail.com",
       "name": "Kiro Spirta",
-      "age": "44",
-      "password": "nzkudesenamiram",
+      "age": 44,
+      "password": "nzkudesum",
       "isAdmin": false,
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
@@ -75,8 +65,8 @@
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-15T14:26:27.278Z",
-      "noteContent": "CSS is evil",
+      "dateCreated": "2020-06-13T13:09:57.933Z",
+      "noteContent": "serious test",
       "id": "ctaLHwS"
     },
     {
@@ -118,7 +108,7 @@
       "authorId": "memyselfandi",
       "authorName": "Dima",
       "dateCreated": "2020-06-14T12:24:23.082Z",
-      "noteContent": "Hello there",
+      "noteContent": "testgsgsgsgsg",
       "id": "zHBJffL"
     },
     {
@@ -129,15 +119,8 @@
       "id": "9Rlimsp"
     },
     {
-      "authorId": "memyselfandi",
-      "authorName": "Dima",
-      "dateCreated": "2020-06-14T16:42:59.831Z",
-      "noteContent": "Unbelieveable , indeed",
-      "id": "Th2YLgJ"
-    },
-    {
       "authorId": "agsdgsgg",
-      "authorName": "Vesko",
+      "authorName": "Asen",
       "dateCreated": "2020-06-14T16:45:15.810Z",
       "noteContent": "agent 007",
       "id": "z5bo-WK"
@@ -152,13 +135,13 @@
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-13T13:09:57.933Z",
-      "noteContent": "test",
+      "dateCreated": "2020-06-15T14:26:27.278Z",
+      "noteContent": "CSS is evil",
       "id": "EkA7dil"
     },
     {
       "authorId": "agsdgsgg",
-      "authorName": "Vesko",
+      "authorName": "Asen",
       "dateCreated": "2020-06-15T15:48:14.990Z",
       "noteContent": "shef",
       "id": "feCd-YE"
@@ -192,18 +175,32 @@
       "id": "Fb7YKJx"
     },
     {
-      "authorId": "4xTZNop",
-      "authorName": "Valentin",
-      "dateCreated": "2020-06-16T13:17:34.097Z",
-      "noteContent": "Shef na firmata",
-      "id": "JQnlGqM"
+      "authorId": "5ed66b4eddd91423dd64d08d",
+      "authorName": "Quinn Ellison",
+      "dateCreated": "2020-06-18T14:33:19.035Z",
+      "noteContent": "teessst",
+      "id": "1xNoSee"
     },
     {
       "authorId": "5ed66b4eddd91423dd64d08d",
       "authorName": "Quinn Ellison",
-      "dateCreated": "2020-06-14T16:42:50.098Z",
-      "noteContent": "Yes still working",
-      "id": "1xNoSee"
+      "dateCreated": "2020-06-15T14:26:27.278Z",
+      "noteContent": "CSS is evil",
+      "id": "ax6mqpY"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-14T12:24:23.082Z",
+      "noteContent": "test",
+      "id": "gHCwkGb"
+    },
+    {
+      "authorId": "memyselfandi",
+      "authorName": "Dima",
+      "dateCreated": "2020-06-14T16:42:59.831Z",
+      "noteContent": "Unbelieveable , indeed",
+      "id": "7vSczc7"
     }
   ]
 }

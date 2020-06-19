@@ -9,10 +9,11 @@ export function UserEdit(props) {
     border: "2px solid #ca7df9",
   };
 
+  const currentUserId = props.computedMatch.params.id;
   const [userEdit, setUserEdit] = useState({
     email: "",
     name: "",
-    age: "",
+    age: 0,
     password: "",
     isAdmin: false,
     isActive: true,
@@ -21,8 +22,8 @@ export function UserEdit(props) {
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    if (props.computedMatch.params.id) {
-      getUser(props.computedMatch.params.id)
+    if (currentUserId) {
+      getUser(currentUserId)
         .then((response) => {
           setUserEdit(response.data);
         })

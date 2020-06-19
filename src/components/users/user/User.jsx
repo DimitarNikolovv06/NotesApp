@@ -5,18 +5,19 @@ import "./User.css";
 import {
   makeNote,
   getNotes,
-  afterDragNotes,
+  afterDrag,
   deleteNote,
 } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
+import { EventEmitter } from "events";
 
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
+  const [dragged, setDragged] = useState(false);
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
   const [notes, setNotes] = useState([]);
-  // const [isDragged, setDragged] = useState(false);
   const [isNoteDeleted, setNoteDeleted] = useState(false);
   const [user, setUser] = useState({});
   const [newNote, setNewNote] = useState({
@@ -25,6 +26,9 @@ export function User(props) {
     dateCreated: new Date(),
     noteContent: "",
   });
+  // const noteIds = notes.map((note) => note.id);
+
+  // EventEmitter.defaultMaxListeners = 100;
 
   useEffect(() => {
     getUser(currentUserId).then((response) => {
@@ -35,6 +39,13 @@ export function User(props) {
       .then((result) => setNotes(result.data))
       .catch((err) => console.log(err));
   }, [currentUserId, isNewNoteSubmitted, isNoteDeleted]);
+
+  useEffect(() => {
+    if (dragged)
+      afterDrag(props.computedMatch.params.id, notes)
+        .then(() => setDragged(false))
+        .catch((err) => console.log(err));
+  });
 
   const onClickDelete = (id) => {
     if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
@@ -55,9 +66,8 @@ export function User(props) {
       .then(() =>
         setNewNote((prevState) => ({ ...prevState, noteContent: "" }))
       )
-      .then(() => setNoteSubmitted(true))
-      .catch((err) => console.log(err))
-      .finally(() => setNoteSubmitted(false));
+      .then(() => setNoteSubmitted(!isNewNoteSubmitted))
+      .catch((err) => console.log(err));
   };
 
   const onChange = (event) => {
@@ -87,15 +97,17 @@ export function User(props) {
 
     // const listId = source.droppableId;
     const newArray = [...notes];
+    // const noteIds = notes.map((note) => note.id);
 
     const [removed] = newArray.splice(source.index, 1);
 
     newArray.splice(destination.index, 0, removed);
+
     setNotes(newArray);
 
-    afterDragNotes(currentUserId, notes)
-      .then(() => console.log("DRAGGED"))
-      .catch((err) => console.log(err));
+    setDragged(true);
+
+    return;
   };
 
   return (
