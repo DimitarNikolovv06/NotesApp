@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "name": "Dimitaer",
+      "age": "22",
+      "email": "me@mail.com",
+      "password": "11111",
+      "isActive": true,
+      "isAdmin": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 1
+    },
+    {
+      "email": "ig@m.com",
+      "name": "Ibi Gandin",
+      "age": "38",
+      "password": "12345",
+      "isAdmin": false,
+      "isActive": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 2
+    }
+  ],
+  "notes": [
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-20T14:13:01.475Z",
+      "noteContent": "test",
+      "id": 1
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-20T14:13:01.475Z",
+      "noteContent": "test2",
+      "id": 2
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-20T14:13:01.475Z",
+      "noteContent": "test3",
+      "id": 3
+    },
+    {
+      "authorId": 2,
+      "authorName": "ibigandin",
+      "dateCreated": "2020-06-20T14:52:38.711Z",
+      "noteContent": "Buy TV",
+      "id": 4
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { deleteNotesWithUser, getNotes } from "./notes.api";
 
-const apiURL = "http://localhost:3008";
+const apiURL = "http://localhost:4200";
 
 export async function getAllUsers(params) {
   const allUsers = (await axios.get(`${apiURL}/users`)).data;
@@ -17,17 +17,8 @@ export function getUser(id) {
   return axios.get(`${apiURL}/users/${id}`);
 }
 
-export async function editUser(userData) {
+export function editUser(userData) {
   if (userData.id) {
-    const allNotes = (await getNotes(userData.id)).data;
-
-    allNotes.map((note) => {
-      note.authorName = userData.name;
-      note.authorId = userData.id;
-
-      axios.put(`${apiURL}/notes/${note.id}`, note);
-    });
-
     return axios.put(`${apiURL}/users/${userData.id}`, userData);
   }
 
@@ -82,7 +73,7 @@ export async function register(userData) {
 
 export async function deleteUser(id) {
   await deleteNotesWithUser(id)
-    .then(() => console.log("works"))
+    .then(() => console.log("deleted"))
     .catch((err) => console.log(err));
 
   return axios.delete(`${apiURL}/users/${id}`);

@@ -7,17 +7,14 @@ import {
   getNotes,
   afterDrag,
   deleteNote,
-  getAllNotes,
 } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
-import { EventEmitter } from "events";
 
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
 
-  const [allNotes, setAllNotes] = useState([]);
   const [dragged, setDragged] = useState(false);
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
   const [notes, setNotes] = useState([]);
@@ -29,8 +26,6 @@ export function User(props) {
     dateCreated: new Date(),
     noteContent: "",
   });
-
-  // EventEmitter.defaultMaxListeners = 100;
 
   useEffect(() => {
     getUser(currentUserId).then((response) => {
@@ -48,7 +43,7 @@ export function User(props) {
         .then(() => setDragged(false))
         .catch((err) => console.log(err));
     }
-  }, [dragged]);
+  }, [dragged, notes, currentUserId]);
 
   const onClickDelete = (id) => {
     if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
@@ -116,11 +111,7 @@ export function User(props) {
     <div className="user container-fluid ">
       <div className="row">
         <div className="left-bar col-3">
-          <UserCard
-            style={{ width: "90%", height: "auto" }}
-            user={user}
-            key={user.id}
-          />
+          <UserCard style={{ width: "90%", height: "auto" }} user={user} />
 
           {(loggedUser.id === currentUserId || loggedUser.isAdmin) && (
             <form onSubmit={onSubmit}>

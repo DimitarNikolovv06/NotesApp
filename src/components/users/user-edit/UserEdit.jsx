@@ -29,7 +29,7 @@ export function UserEdit(props) {
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [currentUserId]);
 
   const onSubmit = (event) => {
     event.preventDefault();
