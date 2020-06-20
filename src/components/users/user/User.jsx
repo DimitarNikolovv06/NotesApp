@@ -7,6 +7,7 @@ import {
   getNotes,
   afterDrag,
   deleteNote,
+  getAllNotes,
 } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -15,6 +16,8 @@ import { EventEmitter } from "events";
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
+
+  const [allNotes, setAllNotes] = useState([]);
   const [dragged, setDragged] = useState(false);
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
   const [notes, setNotes] = useState([]);
@@ -26,7 +29,6 @@ export function User(props) {
     dateCreated: new Date(),
     noteContent: "",
   });
-  // const noteIds = notes.map((note) => note.id);
 
   // EventEmitter.defaultMaxListeners = 100;
 
@@ -41,11 +43,12 @@ export function User(props) {
   }, [currentUserId, isNewNoteSubmitted, isNoteDeleted]);
 
   useEffect(() => {
-    if (dragged)
-      afterDrag(props.computedMatch.params.id, notes)
+    if (dragged) {
+      afterDrag(currentUserId, notes)
         .then(() => setDragged(false))
         .catch((err) => console.log(err));
-  });
+    }
+  }, [dragged]);
 
   const onClickDelete = (id) => {
     if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
@@ -97,7 +100,6 @@ export function User(props) {
 
     // const listId = source.droppableId;
     const newArray = [...notes];
-    // const noteIds = notes.map((note) => note.id);
 
     const [removed] = newArray.splice(source.index, 1);
 
