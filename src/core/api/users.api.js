@@ -1,5 +1,5 @@
 import axios from "axios";
-import { deleteNotesWithUser, getNotes } from "./notes.api";
+import { deleteNotesWithUser } from "./notes.api";
 
 const apiURL = "http://localhost:4200";
 

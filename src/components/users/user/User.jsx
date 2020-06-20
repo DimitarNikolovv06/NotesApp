@@ -2,12 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getUser, getLoggedUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
 import "./User.css";
-import {
-  makeNote,
-  getNotes,
-  afterDrag,
-  deleteNote,
-} from "../../../core/api/notes.api";
+import { makeNote, getNotes, deleteNote } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
 
@@ -15,7 +10,6 @@ export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
   const currentUserId = props.computedMatch.params.id;
 
-  const [dragged, setDragged] = useState(false);
   const [isNewNoteSubmitted, setNoteSubmitted] = useState(false);
   const [notes, setNotes] = useState([]);
   const [isNoteDeleted, setNoteDeleted] = useState(false);
@@ -36,14 +30,6 @@ export function User(props) {
       .then((result) => setNotes(result.data))
       .catch((err) => console.log(err));
   }, [currentUserId, isNewNoteSubmitted, isNoteDeleted]);
-
-  useEffect(() => {
-    if (dragged) {
-      afterDrag(currentUserId, notes)
-        .then(() => setDragged(false))
-        .catch((err) => console.log(err));
-    }
-  }, [dragged, notes, currentUserId]);
 
   const onClickDelete = (id) => {
     if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
@@ -101,8 +87,6 @@ export function User(props) {
     newArray.splice(destination.index, 0, removed);
 
     setNotes(newArray);
-
-    setDragged(true);
 
     return;
   };

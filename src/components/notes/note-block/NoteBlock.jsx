@@ -93,7 +93,7 @@ export function NoteBlock({ note, onDelete, userId, index }) {
             {note.noteContent}
           </div>
 
-          <div className="note-date">{note.dateCreated}</div>
+          <div className="note-date">{note.dateCreated.split("T")[0]}</div>
         </div>
       )}
     </Draggable>

@@ -19,6 +19,16 @@
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": 2
+    },
+    {
+      "email": "god@m.com",
+      "name": "God",
+      "age": "100",
+      "password": "nopass",
+      "isAdmin": false,
+      "isActive": true,
+      "picture": "https://picsum.photos/200/300?random=1",
+      "id": 3
     }
   ],
   "notes": [
@@ -26,29 +36,36 @@
       "authorId": 1,
       "authorName": "Dimitaer",
       "dateCreated": "2020-06-20T14:13:01.475Z",
+      "noteContent": "test3",
+      "id": "asbcdsf2"
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-20T14:13:01.475Z",
       "noteContent": "test",
-      "id": 1
+      "id": "sgdgdd3"
     },
     {
       "authorId": 1,
       "authorName": "Dimitaer",
       "dateCreated": "2020-06-20T14:13:01.475Z",
       "noteContent": "test2",
-      "id": 2
-    },
-    {
-      "authorId": 1,
-      "authorName": "Dimitaer",
-      "dateCreated": "2020-06-20T14:13:01.475Z",
-      "noteContent": "test3",
-      "id": 3
+      "id": "dfgdfhhdf4"
     },
     {
       "authorId": 2,
       "authorName": "ibigandin",
       "dateCreated": "2020-06-20T14:52:38.711Z",
       "noteContent": "Buy TV",
-      "id": 4
+      "id": "dfggsd5"
+    },
+    {
+      "authorId": 3,
+      "authorName": "God",
+      "dateCreated": "2020-06-20T15:47:28.838Z",
+      "noteContent": "Fix Earth",
+      "id": "c10G3Oh"
     }
   ]
 }
