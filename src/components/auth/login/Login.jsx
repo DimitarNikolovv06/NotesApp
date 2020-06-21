@@ -7,11 +7,12 @@ export function Login() {
   const [userData, setUserData] = useState(0);
   const [isLoginSuccess, setLoginSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const loggedUser = JSON.parse(getLoggedUser());
 
   const backgroundImg = {
     backgroundImage: `linear-gradient(90deg, rgba(64,13,100,0.8) 0%, rgba(110,20,148,0.7) 100%) , url(${Background})`,
     backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
+    backgroundSize: "cover",
   };
 
   const onInputChange = (event) => {
@@ -37,11 +38,14 @@ export function Login() {
 
   return (
     <>
-      {isLoginSuccess && (
-        <Redirect to={`/users/${JSON.parse(getLoggedUser()).id}`} />
-      )}
-      <div id="login-container" className="container-fluid">
-        <div style={{ minHeight: "100vh" }} className="row">
+      {isLoginSuccess && <Redirect to={`/users/${loggedUser.id}`} />}
+      <div className="container-fluid">
+        <div
+          id="login-page"
+          style={{ minHeight: "100vh", minWidth: "100vw" }}
+          className="row"
+        >
+          <div style={backgroundImg} className="col-9" />
           <div className="col-3 d-flex align-items-center justify-content-center bg-light">
             <div
               id="login"
@@ -82,7 +86,6 @@ export function Login() {
               </form>
             </div>
           </div>
-          <div id="background" style={backgroundImg} className="col-9"></div>
         </div>
       </div>
     </>

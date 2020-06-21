@@ -22,10 +22,10 @@
     },
     {
       "email": "god@m.com",
-      "name": "God",
+      "name": "Jiizas",
       "age": "100",
-      "password": "nopass",
-      "isAdmin": false,
+      "password": "god",
+      "isAdmin": true,
       "isActive": true,
       "picture": "https://picsum.photos/200/300?random=1",
       "id": 3
@@ -92,18 +92,25 @@
       "id": "i3JGHmc"
     },
     {
-      "authorId": 4,
-      "authorName": "Johnny",
-      "dateCreated": "2020-06-21T12:51:02.274Z",
-      "noteContent": "gdfgdsgds",
-      "id": "Zf4_NCE"
-    },
-    {
       "authorId": 1,
       "authorName": "Dimitaer",
       "dateCreated": "2020-06-21T13:32:57.094Z",
       "noteContent": "cool",
       "id": "Otx7te_"
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-21T16:26:56.058Z",
+      "noteContent": "Cooler",
+      "id": "ZMdcL2H"
+    },
+    {
+      "authorId": 3,
+      "authorName": "God",
+      "dateCreated": "2020-06-21T16:34:59.159Z",
+      "noteContent": "Give tommy cancer",
+      "id": "JutSFxK"
     }
   ]
 }

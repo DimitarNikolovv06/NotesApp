@@ -24,7 +24,7 @@ export function UserCard({ user, onClick, path, style }) {
             loggedUser.id !== user.id &&
             path === "/users" && (
               <button
-                className="btn btn-outline-info"
+                className="btn btn-outline-info card-btn"
                 onClick={() => {
                   onClick(user.id);
                 }}
@@ -35,7 +35,7 @@ export function UserCard({ user, onClick, path, style }) {
             )}
           {loggedUser.isAdmin && (
             <Link
-              className="btn btn-outline-info"
+              className="btn btn-outline-info card-btn"
               to={`/users/${user.id}/edit`}
               user={user}
             >

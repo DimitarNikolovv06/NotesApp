@@ -14,12 +14,23 @@
 .btn {
   margin: 0 5px;
 }
+.card-btn {
+  margin: 15px 5px;
+}
 
 .left-bar {
-  border-right: 3px solid #ca7df9;
   min-height: calc(100vh - 61px);
 }
 /* User:id */
+
+.container-fluid > .row > .col-3 {
+  min-width: 100vw;
+}
+
+.container-fluid > .row > .col-9 {
+  min-width: 100vw;
+  min-height: 20vh;
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
@@ -33,9 +44,22 @@
   .user-card {
     width: 95%;
   }
+  .left-bar {
+    border-right: 3px solid #ca7df9;
+  }
 }
 
 @media only screen and (min-width: 768px) {
+  #login-page > .col-3 {
+    min-width: 0;
+    width: 30vw;
+    min-height: 100vh;
+  }
+  #login-page > .col-9 {
+    min-width: 0;
+    width: 70vw;
+    min-height: 100vh;
+  }
   .user-card {
     width: 90%;
   }
