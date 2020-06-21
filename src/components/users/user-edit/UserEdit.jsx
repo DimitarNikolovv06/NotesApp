@@ -9,6 +9,10 @@ export function UserEdit(props) {
     border: "2px solid #ca7df9",
   };
 
+  const saveBtn = {
+    margin: "20px 0",
+  };
+
   const currentUserId = props.computedMatch.params.id;
   const [userEdit, setUserEdit] = useState({
     email: "",
@@ -79,6 +83,7 @@ export function UserEdit(props) {
               name="email"
               value={userEdit.email}
               onChange={onInputChange}
+              placeholder="Email"
             />
           </div>
           <div className="form-group">
@@ -156,7 +161,11 @@ export function UserEdit(props) {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-outline-info">
+          <button
+            style={saveBtn}
+            type="submit"
+            className="btn btn-outline-info"
+          >
             {props.path === "/create" ? "Create" : "Edit"}
           </button>
         </form>

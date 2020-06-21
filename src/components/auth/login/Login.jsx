@@ -40,12 +40,9 @@ export function Login() {
       {isLoginSuccess && (
         <Redirect to={`/users/${JSON.parse(getLoggedUser()).id}`} />
       )}
-      <div className="container-fluid">
+      <div id="login-container" className="container-fluid">
         <div style={{ minHeight: "100vh" }} className="row">
-          <div
-            style={{ backgroundColor: "whitesmoke" }}
-            className="col-3 d-flex align-items-center justify-content-center"
-          >
+          <div className="col-3 d-flex align-items-center justify-content-center bg-light">
             <div
               id="login"
               className="form-group d-flex justify-content-center align-items-center flex-column"
@@ -85,7 +82,7 @@ export function Login() {
               </form>
             </div>
           </div>
-          <div style={backgroundImg} className="col-9"></div>
+          <div id="background" style={backgroundImg} className="col-9"></div>
         </div>
       </div>
     </>

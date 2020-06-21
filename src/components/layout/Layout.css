@@ -2,25 +2,53 @@
   background: rgb(22, 22, 22);
 }
 
-.pink {
-  color: #ca7df9;
-}
-
 .pink-border {
   border-bottom: 5px solid #ca7df9;
 }
 
-.navbar {
-  background: black;
-}
-
-#notes-app {
+#brand {
   font-family: "Press Start 2P", cursive;
   color: #4a20bd;
 }
 
 .btn {
-  margin: 5px;
+  margin: 0 5px;
 }
 
+.left-bar {
+  border-right: 3px solid #ca7df9;
+  min-height: calc(100vh - 61px);
+}
+/* User:id */
+
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+@media only screen and (max-width: 576px) {
+  .user-card {
+    width: 330px;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .user-card {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .user-card {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .user-card {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .user-card {
+    width: 75%;
+  }
+}

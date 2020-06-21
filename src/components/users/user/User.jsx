@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getUser, getLoggedUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
-import "./User.css";
 import { makeNote, getNotes, deleteNote } from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
+import { Form } from "react-bootstrap";
 
 export function User(props) {
   const loggedUser = JSON.parse(getLoggedUser());
@@ -32,7 +32,7 @@ export function User(props) {
   }, [currentUserId, isNewNoteSubmitted, isNoteDeleted]);
 
   const onClickDelete = (id) => {
-    if (loggedUser.id === currentUserId || loggedUser.isAdmin) {
+    if (loggedUser.id == currentUserId || loggedUser.isAdmin) {
       deleteNote(id)
         .then(() => {
           setNoteDeleted(!isNoteDeleted);
@@ -93,12 +93,11 @@ export function User(props) {
 
   return (
     <div className="user container-fluid ">
-      <div className="row">
-        <div className="left-bar col-3">
-          <UserCard style={{ width: "90%", height: "auto" }} user={user} />
-
-          {(loggedUser.id === currentUserId || loggedUser.isAdmin) && (
-            <form onSubmit={onSubmit}>
+      <div className="row flex-column flex-sm-row">
+        <div className="left-bar col-sm-4">
+          <UserCard user={user} />
+          {(loggedUser.id == currentUserId || loggedUser.isAdmin) && (
+            <Form onSubmit={onSubmit}>
               <input
                 className="form-control btn-outline-info mt-4"
                 onChange={onChange}
@@ -109,14 +108,18 @@ export function User(props) {
                 style={{ background: "none" }}
                 placeholder="New Note"
               />
-              <button type="submit" className="btn btn-outline-info mt-2">
+              <button
+                style={{ margin: "15px 0" }}
+                type="submit"
+                className="btn btn-outline-info mt-2"
+              >
                 Add Note
               </button>
-            </form>
+            </Form>
           )}
         </div>
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className=" right-bar col-9">
+          <div className=" right-bar col-sm-8 bg-dark">
             <NotesList
               notes={notes}
               userId={currentUserId}

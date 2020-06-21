@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, Redirect, withRouter } from "react-router-dom";
-import "./Header.css";
+import { Redirect, withRouter } from "react-router-dom";
 import { logout, getLoggedUser } from "../../../core/api/users.api";
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
 export const Header = withRouter((props) => {
   const [isLoggedOut, setLogout] = useState(false);
@@ -47,74 +47,58 @@ export const Header = withRouter((props) => {
 
   return (
     <>
+      {console.log(window.innerWidth)}
       {isLoggedOut && <Redirect to="/login" />}
-      <div className="header">
-        <nav
-          id="nav"
-          className="navbar navbar-expand-lg navbar-dark pink-border"
-        >
-          <Link id="notes-app" className="navbar-brand" to="/users">
-            [Notes-app]
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+      <Navbar className="pink-border" expand="lg">
+        <Navbar.Brand id="brand" href="/users">
+          [Notes-app]
+        </Navbar.Brand>
+        <Navbar.Toggle
+          style={{ backgroundColor: "#ca7df9" }}
+          aria-controls="basic-navbar-nav"
+        />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link
+              style={{ color: "white" }}
+              href={`/users/${loggedUser.id}`}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link style={{ color: "white" }} href="/users">
+              Users
+            </Nav.Link>
+            {loggedUser.isAdmin && (
+              <Nav.Link style={{ color: "white" }} href="/create">
+                Create User
+              </Nav.Link>
+            )}
+          </Nav>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <Link className="nav-link" to={`/users/${loggedUser.id}`}>
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/users">
-                  Users
-                </Link>
-              </li>
-              {loggedUser.isAdmin && (
-                <li className="nav-item">
-                  <Link className="nav-link" to="/create">
-                    Create User
-                  </Link>
-                </li>
-              )}
-            </ul>
-            <form onSubmit={onSubmit} className="form-inline my-2 my-lg-0">
-              <input
+          {props.location.pathname === "/users" && (
+            <Form
+              inline
+              onSubmit={onSubmit}
+              className="form-inline my-2 my-lg-0 d-flex justify-content-center align-items-center "
+            >
+              <FormControl
                 name="searchInput"
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Search"
-                aria-label="Search"
                 onChange={onChange}
                 onKeyDown={onKeyDown}
               />
-              <button
-                className="btn btn-outline-info my-2 my-sm-0"
-                type="submit"
-              >
+              <Button variant="outline-info" type="submit">
                 Search
-              </button>
-              <button
-                className="btn btn-outline-info my-2 my-sm-0"
-                type="onclick"
-                onClick={onClick}
-              >
-                Logout
-              </button>
-            </form>
-          </div>
-        </nav>
-      </div>
+              </Button>
+            </Form>
+          )}
+          <Button variant="outline-info" type="onclick" onClick={onClick}>
+            Logout
+          </Button>
+        </Navbar.Collapse>
+      </Navbar>
     </>
   );
 });

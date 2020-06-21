@@ -9,6 +9,11 @@ export function UsersList(props) {
   const params = search.split("=")[1];
   const [isUserDeleted, setUserDeleted] = useState(false);
 
+  const userCardStyle = {
+    width: "330px",
+    height: "450px",
+  };
+
   const onClick = (id) => {
     deleteUser(id)
       .then(() => setUserDeleted(!isUserDeleted))
@@ -31,6 +36,7 @@ export function UsersList(props) {
           user={user}
           key={user.id}
           onClick={onClick}
+          style={userCardStyle}
         />
       ))}
     </div>

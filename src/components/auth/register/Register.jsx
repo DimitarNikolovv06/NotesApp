@@ -44,10 +44,10 @@ export function Register() {
     <>
       {isRegistered && <Redirect to="/login" />}
       <div
-        className="register-wrapper  d-flex flex-column justify-content-center align-items-center"
+        className="register-wrapper  d-flex flex-column justify-content-center align-items-center bg-light"
         style={{ height: "100vh", width: "100vw" }}
       >
-        <h1 style={{ color: "whitesmoke" }}>Registration</h1>
+        <h1>Registration</h1>
         <form
           className=" d-flex flex-column justify-content-center align-items-center"
           style={style}

@@ -17,6 +17,14 @@ export function NoteBlock({ note, onDelete, userId, index }) {
   const editIcon = <FontAwesomeIcon icon={faEdit} />;
   const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 
+  const iconsStyle = {
+    position: "absolute",
+    margin: "5px",
+    background: "none",
+    border: "none",
+    zIndex: 100,
+  };
+
   useEffect(() => {
     if (isSubmitted)
       document.getElementById(`cont-${note.id}`).innerText =
@@ -45,7 +53,7 @@ export function NoteBlock({ note, onDelete, userId, index }) {
   };
 
   const onClick = () => {
-    if (loggedUser.id === userId || loggedUser.isAdmin) {
+    if (loggedUser.id == userId || loggedUser.isAdmin) {
       setIsClicked(!isClicked);
     } else {
       alert(`Can't edit a note that does not belong to you!`);
@@ -72,16 +80,18 @@ export function NoteBlock({ note, onDelete, userId, index }) {
           )}
           <div>
             <button
+              style={iconsStyle}
               id="edit-icon"
-              className="btn btn-outline-info"
+              className="btn "
               type="button"
               onClick={onClick}
             >
               {editIcon}
             </button>
             <button
+              style={iconsStyle}
               id="delete-icon"
-              className="btn btn-outline-info"
+              className="btn "
               type="button"
               onClick={() => onDelete(note.id)}
             >
