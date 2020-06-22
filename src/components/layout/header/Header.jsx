@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect, withRouter, Link } from "react-router-dom";
 import { logout, getLoggedUser } from "../../../core/api/users.api";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 
@@ -47,7 +47,6 @@ export const Header = withRouter((props) => {
 
   return (
     <>
-      {console.log(window.innerWidth)}
       {isLoggedOut && <Redirect to="/login" />}
       <Navbar className="pink-border" expand="lg">
         <Navbar.Brand id="brand" href="/users">
@@ -59,19 +58,16 @@ export const Header = withRouter((props) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link
-              style={{ color: "white" }}
-              href={`/users/${loggedUser.id}`}
-            >
+            <Link className="text-white m-1" to={`/users/${loggedUser.id}`}>
               Home
-            </Nav.Link>
-            <Nav.Link style={{ color: "white" }} href="/users">
+            </Link>
+            <Link className="text-white m-1" to="/users">
               Users
-            </Nav.Link>
+            </Link>
             {loggedUser.isAdmin && (
-              <Nav.Link style={{ color: "white" }} href="/create">
+              <Link className="text-white m-1" to="/create">
                 Create User
-              </Nav.Link>
+              </Link>
             )}
           </Nav>
 

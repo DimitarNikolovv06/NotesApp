@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./NoteBlock.css";
 import { NoteEditForm } from "./NoteEditForm";
 import { useEffect } from "react";
 import { editNote } from "../../../core/api/notes.api";
@@ -10,10 +9,9 @@ import { Draggable } from "react-beautiful-dnd";
 
 export function NoteBlock({ note, onDelete, userId, index }) {
   const loggedUser = JSON.parse(getLoggedUser());
-  const [isClicked, setIsClicked] = useState(false);
   const [editedNote, setEditedNote] = useState({ ...note });
   const [isSubmitted, setSubmitted] = useState(false);
-  const [isEditIconClicked, setIconClicked] = useState(false);
+  const [isEditIconClicked, setEditIconClicked] = useState(false);
   const editIcon = <FontAwesomeIcon icon={faEdit} />;
   const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 
@@ -26,10 +24,11 @@ export function NoteBlock({ note, onDelete, userId, index }) {
   };
 
   useEffect(() => {
-    if (isSubmitted)
-      document.getElementById(`cont-${note.id}`).innerText =
-        editedNote.noteContent;
-  }, [isEditIconClicked]);
+    document.getElementById(`cont-${note.id}`).innerText =
+      editedNote.noteContent;
+
+    setSubmitted(false);
+  }, [isSubmitted, editedNote.noteContent, note.id]);
 
   const onNoteEdit = (event) => {
     event.persist();
@@ -42,19 +41,20 @@ export function NoteBlock({ note, onDelete, userId, index }) {
 
   const onNoteSubmit = (event) => {
     event.preventDefault();
-    setSubmitted(!isSubmitted);
-    setIconClicked(!isEditIconClicked);
 
     editNote(editedNote)
       .then((result) => {
         note = result.data;
       })
       .catch((err) => console.log(err));
+
+    setEditIconClicked(false);
+    setSubmitted(true);
   };
 
   const onClick = () => {
     if (loggedUser.id == userId || loggedUser.isAdmin) {
-      setIsClicked(!isClicked);
+      setEditIconClicked(!isEditIconClicked);
     } else {
       alert(`Can't edit a note that does not belong to you!`);
     }
@@ -69,9 +69,8 @@ export function NoteBlock({ note, onDelete, userId, index }) {
           ref={provided.innerRef}
           className="note-block"
         >
-          {isClicked && (
+          {isEditIconClicked && (
             <NoteEditForm
-              note={note}
               onNoteEdit={onNoteEdit}
               onNoteSubmit={onNoteSubmit}
               isSubmitted={isSubmitted}
@@ -82,7 +81,6 @@ export function NoteBlock({ note, onDelete, userId, index }) {
             <button
               style={iconsStyle}
               id="edit-icon"
-              className="btn "
               type="button"
               onClick={onClick}
             >
@@ -91,7 +89,6 @@ export function NoteBlock({ note, onDelete, userId, index }) {
             <button
               style={iconsStyle}
               id="delete-icon"
-              className="btn "
               type="button"
               onClick={() => onDelete(note.id)}
             >

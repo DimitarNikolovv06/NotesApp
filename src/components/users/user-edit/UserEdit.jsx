@@ -74,7 +74,9 @@ export function UserEdit(props) {
           onSubmit={onSubmit}
         >
           <div className="form-group">
-            <label labelfor="exampleInputEmail1">Email address</label>
+            <label className="text-light" labelfor="exampleInputEmail1">
+              Email address
+            </label>
             <input
               type="email"
               className="form-control"
@@ -87,7 +89,9 @@ export function UserEdit(props) {
             />
           </div>
           <div className="form-group">
-            <label labelfor="exampleInputEmail1">Name</label>
+            <label className="text-light" labelfor="exampleInputEmail1">
+              Name
+            </label>
             <input
               type="text"
               className="form-control"
@@ -99,7 +103,9 @@ export function UserEdit(props) {
             />
           </div>
           <div className="form-group">
-            <label labelfor="exampleInputEmail1">Age</label>
+            <label className="text-light" labelfor="exampleInputEmail1">
+              Age
+            </label>
             <input
               type="number"
               min="12"
@@ -111,7 +117,9 @@ export function UserEdit(props) {
             />
           </div>
           <div className="form-group">
-            <label labelfor="password">Password</label>
+            <label className="text-light" labelfor="password">
+              Password
+            </label>
             <input
               type="password"
               className="form-control"

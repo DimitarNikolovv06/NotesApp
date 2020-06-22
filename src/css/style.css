@@ -21,7 +21,7 @@
 .left-bar {
   min-height: calc(100vh - 61px);
 }
-/* User:id */
+/* User home */
 
 .container-fluid > .row > .col-3 {
   min-width: 100vw;
@@ -32,20 +32,88 @@
   min-height: 20vh;
 }
 
+.reg-form {
+  padding: 20px 30px;
+  border: 2px solid #ca7df9;
+}
+
+.user-card {
+  box-sizing: border-box;
+  width: 80%;
+  height: auto;
+  background: none;
+  color: var(--light);
+  border: 2px solid #ca7df9;
+}
+
+img {
+  width: 80%;
+  max-height: 320px;
+}
+
+.users-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.note-block {
+  position: relative;
+  width: 80%;
+  height: auto;
+  background: #4a20bd;
+  border-radius: 5px;
+  color: white;
+  margin: 20px auto;
+}
+
+.note-content,
+.note-date {
+  position: relative;
+  padding: 5px;
+  word-wrap: break-word;
+  /* width: 90%; */
+}
+
+#delete-icon {
+  right: 0;
+  bottom: 0;
+}
+#edit-icon {
+  right: 20px;
+  bottom: 0;
+}
+
+#delete-icon:hover {
+  color: white;
+}
+#edit-icon:hover {
+  color: white;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 @media only screen and (max-width: 576px) {
   .user-card {
-    width: 330px;
+    width: auto;
+    max-width: 350px;
+    margin: 15px auto;
   }
 }
 
 @media only screen and (min-width: 576px) {
   .user-card {
     width: 95%;
+    margin: 15px auto;
   }
   .left-bar {
     border-right: 3px solid #ca7df9;
+  }
+
+  .reg-form {
+    padding: 20px 90px;
+    border: 2px solid #ca7df9;
   }
 }
 

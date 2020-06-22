@@ -1,7 +1,6 @@
 import React from "react";
 
 export function NoteEditForm({
-  note,
   onNoteEdit,
   onNoteSubmit,
   isSubmitted,
@@ -17,12 +16,16 @@ export function NoteEditForm({
             type="submit"
           >
             <input
-              className="form-control btn-outline-info"
-              placeholder={note.noteContent}
+              className="form-control"
               type="text"
               name="noteContent"
               id="noteContent"
-              style={{ background: "none" }}
+              style={{
+                background: "black",
+                color: "white",
+                boxShadow: "none",
+                paddingTop: "0",
+              }}
               onChange={(event) => onNoteEdit(event)}
               value={editedNote.noteContent}
             />

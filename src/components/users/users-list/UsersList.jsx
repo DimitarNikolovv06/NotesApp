@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllUsers, deleteUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
-import "./UsersList.css";
 
 export function UsersList(props) {
   const [users, setUsers] = useState([]);
@@ -11,7 +10,7 @@ export function UsersList(props) {
 
   const userCardStyle = {
     width: "330px",
-    height: "450px",
+    height: "auto",
   };
 
   const onClick = (id) => {

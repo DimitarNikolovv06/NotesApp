@@ -1,5 +1,4 @@
 import React from "react";
-import "./UserCard.css";
 import { Link } from "react-router-dom";
 import { getLoggedUser } from "../../../core/api/users.api";
 
