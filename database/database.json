@@ -53,15 +53,8 @@
       "authorId": 4,
       "authorName": "Johnny",
       "dateCreated": "2020-06-21T10:53:25.189Z",
-      "noteContent": "Helloooosdfdsfsdfdsfds",
+      "noteContent": "Helloo",
       "id": "vf5I7Ko"
-    },
-    {
-      "authorId": 4,
-      "authorName": "Johnny",
-      "dateCreated": "2020-06-21T12:01:33.092Z",
-      "noteContent": "opsaaaa",
-      "id": "p_UGFsi"
     },
     {
       "authorId": 2,
@@ -81,15 +74,50 @@
       "authorId": 1,
       "authorName": "Dimitaer",
       "dateCreated": "2020-06-22T15:35:07.633Z",
-      "noteContent": "Noice",
+      "noteContent": "Nice",
       "id": "bAL6N0E"
+    },
+    {
+      "authorId": 5,
+      "authorName": "Random",
+      "dateCreated": "2020-06-22T16:07:17.928Z",
+      "noteContent": "buy food for the cat",
+      "id": "CLziTbD"
+    },
+    {
+      "authorId": 4,
+      "authorName": "Johnny",
+      "dateCreated": "2020-06-22T16:09:52.662Z",
+      "noteContent": "Oh wrong site",
+      "id": "_TOFyJ1"
     },
     {
       "authorId": 1,
       "authorName": "Dimitaer",
-      "dateCreated": "2020-06-22T15:41:53.159Z",
-      "noteContent": "Still works",
-      "id": "YiaHDgi"
+      "dateCreated": "2020-06-22T16:10:24.045Z",
+      "noteContent": "Hello there",
+      "id": "c_2gqnu"
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-22T16:10:24.045Z",
+      "noteContent": "I made this app with React",
+      "id": "xlTPNF4"
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-22T16:10:24.045Z",
+      "noteContent": "So far seems like a cool framework, library or whatever people prefer to call it :D",
+      "id": "WS_rVSN"
+    },
+    {
+      "authorId": 1,
+      "authorName": "Dimitaer",
+      "dateCreated": "2020-06-22T16:10:24.045Z",
+      "noteContent": "It's not much but it was honest work ",
+      "id": "pcORS9v"
     }
   ]
 }
