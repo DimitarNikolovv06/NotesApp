@@ -8,6 +8,8 @@ import { Register } from "./components/auth/register/Register";
 import { NonAuthenticatedRoute } from "./core/auth/NonAuthenticatedRoute";
 
 function App() {
+  process.env.PORT = 3000;
+
   return (
     <div className="App">
       <Switch>
