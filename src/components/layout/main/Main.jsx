@@ -10,7 +10,7 @@ export function Main() {
   return (
     <div className="main-content">
       <Switch>
-        <AuthenticatedRoute exact path="/" component={Redirection} />
+        {/* <AuthenticatedRoute exact path="/" component={Redirection} /> */}
         <AuthenticatedRoute exact path="/users" component={UsersList} />
         <AuthenticatedRoute exact path="/users/:id" component={User} />
         <AuthenticatedRoute
