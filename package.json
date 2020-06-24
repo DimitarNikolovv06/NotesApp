@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server --watch ./database/database.json --port 4200 --ipv6"
+    "json-server": "json-server --watch ./database/database.json --port 4200"
   },
   "eslintConfig": {
     "extends": "react-app"
