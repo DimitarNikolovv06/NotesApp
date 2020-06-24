@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = "http://localhost:4200";
+const apiURL = "http://localhost:3005";
 
 export function getNotes(id) {
   return axios.get(`${apiURL}/notes?authorId=${id}`);
