@@ -77,24 +77,26 @@ export function NoteBlock({ note, onDelete, userId, index }) {
               editedNote={editedNote}
             />
           )}
-          <div>
-            <button
-              style={iconsStyle}
-              id="edit-icon"
-              type="button"
-              onClick={onClick}
-            >
-              {editIcon}
-            </button>
-            <button
-              style={iconsStyle}
-              id="delete-icon"
-              type="button"
-              onClick={() => onDelete(note.id)}
-            >
-              {deleteIcon}
-            </button>
-          </div>
+          {(loggedUser.id == userId || loggedUser.isAdmin) && (
+            <div>
+              <button
+                style={iconsStyle}
+                id="edit-icon"
+                type="button"
+                onClick={onClick}
+              >
+                {editIcon}
+              </button>
+              <button
+                style={iconsStyle}
+                id="delete-icon"
+                type="button"
+                onClick={() => onDelete(note.id)}
+              >
+                {deleteIcon}
+              </button>
+            </div>
+          )}
 
           <div id={`cont-${note.id}`} className="note-content">
             {note.noteContent}

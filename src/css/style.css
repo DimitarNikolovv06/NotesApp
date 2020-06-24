@@ -92,8 +92,6 @@ img {
   color: white;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
 @media only screen and (max-width: 576px) {
   .user-card {
     width: auto;
@@ -103,6 +101,12 @@ img {
 }
 
 @media only screen and (min-width: 576px) {
+  .left-bar {
+    min-height: 0;
+    /* max-height: fit-content; */
+    height: 20vh;
+  }
+
   .user-card {
     width: 95%;
     margin: 15px auto;
@@ -121,12 +125,12 @@ img {
   #login-page > .col-3 {
     min-width: 0;
     width: 30vw;
-    min-height: 100vh;
+    max-height: 100vh;
   }
   #login-page > .col-9 {
     min-width: 0;
     width: 70vw;
-    min-height: 100vh;
+    max-height: 100vh;
   }
   .user-card {
     width: 90%;

@@ -117,6 +117,11 @@ export function User(props) {
               </button>
             </Form>
           )}
+          {loggedUser.id == currentUserId && (
+            <p style={{ color: "white" }}>
+              You have {notes.length} notes left.
+            </p>
+          )}
         </div>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className=" right-bar col-sm-8 bg-dark">
