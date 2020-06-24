@@ -101,12 +101,6 @@ img {
 }
 
 @media only screen and (min-width: 576px) {
-  .left-bar {
-    min-height: 0;
-    /* max-height: fit-content; */
-    height: 20vh;
-  }
-
   .user-card {
     width: 95%;
     margin: 15px auto;
