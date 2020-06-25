@@ -1,7 +1,7 @@
 import axios from "axios";
 import { deleteNotesWithUser } from "./notes.api";
 
-const apiURL = "http://localhost:3005";
+const apiURL = "https://notes-db.herokuapp.com";
 
 export async function getAllUsers(params) {
   const allUsers = (await axios.get(`${apiURL}/users`)).data;

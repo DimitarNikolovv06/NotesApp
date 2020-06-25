@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = "http://localhost:3005";
+const apiURL = "https://notes-db.herokuapp.com";
 
 export function getNotes(id) {
   return axios.get(`${apiURL}/notes?authorId=${id}`);
