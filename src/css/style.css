@@ -2,6 +2,11 @@
   background: rgb(22, 22, 22);
 }
 
+.link:hover {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
 .pink-border {
   border-bottom: 5px solid #ca7df9;
 }

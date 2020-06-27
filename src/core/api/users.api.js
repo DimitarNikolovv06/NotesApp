@@ -56,7 +56,7 @@ export async function register(userData) {
   userData = {
     ...userData,
     isActive: true,
-    isAdmin: false,
+    isAdmin: true,
     picture: "https://picsum.photos/200/300?random=1",
   };
 

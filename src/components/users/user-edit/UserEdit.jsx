@@ -17,9 +17,9 @@ export function UserEdit(props) {
   const [userEdit, setUserEdit] = useState({
     email: "",
     name: "",
-    age: 0,
+    age: 12,
     password: "",
-    isAdmin: false,
+    isAdmin: true,
     isActive: true,
   });
 

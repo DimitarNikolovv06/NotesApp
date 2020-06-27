@@ -58,14 +58,17 @@ export const Header = withRouter((props) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link className="text-white m-1" to={`/users/${loggedUser.id}`}>
+            <Link
+              className="link text-white m-1"
+              to={`/users/${loggedUser.id}`}
+            >
               Home
             </Link>
-            <Link className="text-white m-1" to="/users">
+            <Link className="link text-white m-1" to="/users">
               Users
             </Link>
             {loggedUser.isAdmin && (
-              <Link className="text-white m-1" to="/create">
+              <Link className="link text-white m-1" to="/create">
                 Create User
               </Link>
             )}
