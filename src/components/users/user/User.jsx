@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { getUser, getLoggedUser } from "../../../core/api/users.api";
 import { UserCard } from "../user-card/UserCard";
-import { makeNote, getNotes, deleteNote } from "../../../core/api/notes.api";
+import {
+  makeNote,
+  getNotes,
+  deleteNote,
+  afterDrag,
+} from "../../../core/api/notes.api";
 import { NotesList } from "../../notes/notes-list/NotesList";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Form } from "react-bootstrap";
@@ -79,7 +84,6 @@ export function User(props) {
       return;
     }
 
-    // const listId = source.droppableId;
     const newArray = [...notes];
 
     const [removed] = newArray.splice(source.index, 1);
@@ -87,6 +91,8 @@ export function User(props) {
     newArray.splice(destination.index, 0, removed);
 
     setNotes(newArray);
+
+    afterDrag(currentUserId, newArray);
 
     return;
   };
@@ -124,7 +130,7 @@ export function User(props) {
           )}
         </div>
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className=" right-bar col-sm-8 bg-dark">
+          <div className=" right-bar col-sm-8 ">
             <NotesList
               notes={notes}
               userId={currentUserId}

@@ -30,8 +30,9 @@ export async function deleteNotesWithUser(userId) {
 
 export async function afterDrag(userId, notes) {
   const oldNotes = (await getNotes(userId)).data;
-
-  return oldNotes.forEach((note, ind) =>
-    axios.patch(`${apiURL}/notes/${note.id}`, notes[ind])
+  const notesPromises = oldNotes.map((note, i) =>
+    axios.put(`${apiURL}/notes/${note.id}`, notes[i])
   );
+
+  await Promise.all(notesPromises);
 }
